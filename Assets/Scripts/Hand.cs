@@ -7,7 +7,6 @@ using UnityEngine;
 // https://youtu.be/DxKWq7z4Xao
 // Accessed 17/01/2024
 
-[RequireComponent(typeof(Animator))]
 public class Hand : MonoBehaviour
 {
     Animator animator;
