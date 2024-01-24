@@ -622,9 +622,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: -0.000012613833, y: -0.23782894, z: 0.040897608}
@@ -762,9 +762,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.0000010281801, y: -0.85357535, z: 0.053219482}
@@ -908,7 +908,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704449584742006135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1001,9 +1001,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: -0.00000078231096, y: -0.9497498, z: 0.13739963}
@@ -1343,9 +1343,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.000000022351742, y: 0.27552497, z: -0.032185175}
@@ -1609,7 +1609,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.14125362, y: 0.00000023303792, z: 0.000000065156506, w: 0.9899734}
   m_LocalPosition: {x: -2.1038726e-14, y: 0.08705414, z: 0.00000009033829}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.035, y: 1.035, z: 1.035}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5078954197121257369}
@@ -1873,9 +1873,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.0000003874302, y: 0.5120065, z: -0.08341023}
@@ -2076,9 +2076,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.000000007683411, y: 0.019354708, z: -0.022495575}
@@ -2246,7 +2246,12 @@ SkinnedMeshRenderer:
   - {fileID: 7746593587401971042}
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 64.8
+  - 0
+  - 39.2
+  - 31
+  - 0
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.0000000069849193, y: 0.019354708, z: -0.022495568}
@@ -2432,6 +2437,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - {fileID: 2100000, guid: a4d90c6a694253e4380dd8ad8aca9b32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2510,7 +2516,10 @@ SkinnedMeshRenderer:
   - {fileID: 7746593587401971042}
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - -18
+  - 0
+  - 0
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.0000000069849193, y: 0.019354708, z: -0.022495568}
@@ -2648,9 +2657,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: -0.000038154423, y: 0.06363132, z: -0.0020803362}
@@ -2947,9 +2956,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.000016391277, y: -0.5843852, z: 0.0508027}
@@ -3126,7 +3135,6 @@ GameObject:
   - component: {fileID: 5002373625683123975}
   - component: {fileID: 1759263977557675530}
   - component: {fileID: 6968793042139895342}
-  - component: {fileID: 6894070890682113623}
   m_Layer: 0
   m_Name: Harker
   m_TagString: Untagged
@@ -3229,7 +3237,7 @@ MonoBehaviour:
   - name: STOMACH
     skinnedMesh:
     - {fileID: 3459458548314692918}
-  prefabPath: Assets/Man.prefab
+  prefabPath: Assets/Characters/Harker.prefab
   instanceStatus: 1
   originHip: {fileID: 5401714289882489247}
   headHip: {fileID: 2592066558117948528}
@@ -3259,17 +3267,17 @@ MonoBehaviour:
     Hat: -1
     Shirt: -1
     Pants: 0
-    Shoes: -1
+    Shoes: 4
     Accessory: -1
     Item1: -1
   heightValue: 0
-  headSizeValue: 0
+  headSizeValue: 0.035
   feetOffset: 0
   characterBlendshapeDatas:
   - blendshapeName: Fat
     type: 0
     group: 0
-    value: 0
+    value: 64.8
   - blendshapeName: Muscles
     type: 1
     group: 0
@@ -3277,27 +3285,27 @@ MonoBehaviour:
   - blendshapeName: Thin
     type: 3
     group: 0
-    value: 0
+    value: 39.2
   - blendshapeName: Neck_Width
     type: 5
     group: 1
-    value: 0
+    value: 31
   - blendshapeName: Ear_Size
     type: 6
     group: 1
-    value: 0
+    value: 74
   - blendshapeName: Ear_Angle
     type: 7
     group: 1
-    value: 0
+    value: 77
   - blendshapeName: Jaw_Width
     type: 8
     group: 1
-    value: 0
+    value: 100
   - blendshapeName: Jaw_Offset
     type: 9
     group: 1
-    value: 0
+    value: 34
   - blendshapeName: Jaw_Shift
     type: 10
     group: 1
@@ -3305,7 +3313,7 @@ MonoBehaviour:
   - blendshapeName: Cheek_Size
     type: 11
     group: 1
-    value: 0
+    value: 57
   - blendshapeName: Chin_Offset
     type: 12
     group: 1
@@ -3313,11 +3321,11 @@ MonoBehaviour:
   - blendshapeName: Eye_Width
     type: 13
     group: 1
-    value: 0
+    value: 23
   - blendshapeName: Eye_Form
     type: 14
     group: 1
-    value: 0
+    value: 100
   - blendshapeName: Eye_InnerCorner
     type: 15
     group: 1
@@ -3341,11 +3349,11 @@ MonoBehaviour:
   - blendshapeName: Eye_ScaleX
     type: 20
     group: 1
-    value: 0
+    value: -20
   - blendshapeName: Eye_ScaleY
     type: 21
     group: 1
-    value: 0
+    value: 45
   - blendshapeName: Eye_Size
     type: 22
     group: 1
@@ -3353,39 +3361,39 @@ MonoBehaviour:
   - blendshapeName: Eye_Close
     type: 23
     group: 1
-    value: 0
+    value: 30
   - blendshapeName: Eye_Height
     type: 24
     group: 1
-    value: 0
+    value: -18
   - blendshapeName: Brow_Height
     type: 25
     group: 1
-    value: 0
+    value: -51
   - blendshapeName: Brow_Shape
     type: 26
     group: 1
-    value: 0
+    value: -100
   - blendshapeName: Brow_Thickness
     type: 27
     group: 1
-    value: 0
+    value: 100
   - blendshapeName: Brow_Length
     type: 28
     group: 1
-    value: 0
+    value: 19
   - blendshapeName: Nose_Length
     type: 29
     group: 1
-    value: 0
+    value: 29
   - blendshapeName: Nose_Size
     type: 30
     group: 1
-    value: 0
+    value: 14
   - blendshapeName: Nose_Angle
     type: 31
     group: 1
-    value: 0
+    value: -36
   - blendshapeName: Nose_Offset
     type: 32
     group: 1
@@ -3393,27 +3401,27 @@ MonoBehaviour:
   - blendshapeName: Nose_Bridge
     type: 33
     group: 1
-    value: 0
+    value: -5
   - blendshapeName: Nose_Hump
     type: 34
     group: 1
-    value: 0
+    value: -14
   - blendshapeName: Mouth_Offset
     type: 35
     group: 1
-    value: 0
+    value: 22
   - blendshapeName: Mouth_Width
     type: 36
     group: 1
-    value: 0
+    value: 78
   - blendshapeName: Mouth_Size
     type: 37
     group: 1
-    value: 0
+    value: 41
   - blendshapeName: Mouth_Open
     type: 38
     group: 1
-    value: 0
+    value: 15
   - blendshapeName: Mouth_Bulging
     type: 39
     group: 1
@@ -3421,19 +3429,19 @@ MonoBehaviour:
   - blendshapeName: LipsCorners_Offset
     type: 40
     group: 1
-    value: 0
+    value: 48
   - blendshapeName: Face_Form
     type: 41
     group: 1
-    value: 0
+    value: 14
   - blendshapeName: Chin_Width
     type: 42
     group: 1
-    value: 0
+    value: 35
   - blendshapeName: Chin_Form
     type: 43
     group: 1
-    value: 0
+    value: 10
   - blendshapeName: Head_Offset
     type: 44
     group: 2
@@ -3441,7 +3449,7 @@ MonoBehaviour:
   - blendshapeName: Smile
     type: 45
     group: 1
-    value: 0
+    value: -3
   - blendshapeName: Sadness
     type: 46
     group: 1
@@ -3449,7 +3457,7 @@ MonoBehaviour:
   - blendshapeName: Surprise
     type: 47
     group: 1
-    value: 0
+    value: 28
   - blendshapeName: Thoughtful
     type: 48
     group: 1
@@ -3501,30 +3509,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!205 &6894070890682113623
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7445725309065599679}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.6
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.3
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.1
-    fadeTransitionWidth: 0
-    renderers: []
-  m_Enabled: 1
 --- !u!1 &7486834673585805283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,9 +3703,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.00000035762787, y: 0.517971, z: -0.10318941}
@@ -3859,9 +3843,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: -0.00008047372, y: 0.4658661, z: -0.08688801}
@@ -4168,7 +4152,12 @@ SkinnedMeshRenderer:
   - {fileID: 7746593587401971042}
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 64.8
+  - 0
+  - 39.2
+  - 0
+  - 0
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.000000007683411, y: 0.019354708, z: -0.022495575}
@@ -4374,9 +4363,9 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
   - 0
-  - 0
-  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.00000044703484, y: 0.5201522, z: -0.00079192966}
@@ -4514,53 +4503,53 @@ SkinnedMeshRenderer:
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
   m_BlendShapeWeights:
+  - 64.8
+  - 0
+  - 39.2
+  - 31
+  - 74
+  - 77
+  - 100
+  - 34
+  - 0
+  - 57
+  - 0
+  - 23
+  - 100
   - 0
   - 0
   - 0
+  - -20
+  - 45
+  - 0
+  - 30
+  - -18
   - 0
   - 0
+  - -51
+  - -100
+  - 100
+  - 19
+  - 29
+  - 14
+  - -36
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -5
+  - -14
+  - 22
+  - -100
+  - 6
+  - 39
+  - 2
+  - 48
+  - 14
+  - 35
+  - 10
+  - -3
+  - 17
+  - 28
+  - -10
+  - 2
   - 0
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
@@ -4709,7 +4698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8943290693648861229
 Transform:
   m_ObjectHideFlags: 0
@@ -4770,7 +4759,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300006, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
   m_Bones:
   - {fileID: 6461436072956897166}
   - {fileID: 2301325535273937201}
@@ -4824,7 +4813,10 @@ SkinnedMeshRenderer:
   - {fileID: 7746593587401971042}
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 64.8
+  - 0
+  - 39.2
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.000000007683411, y: 0.019354708, z: -0.022495575}
