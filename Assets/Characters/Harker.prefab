@@ -1140,7 +1140,8 @@ SkinnedMeshRenderer:
   - {fileID: 7746593587401971042}
   - {fileID: 5864664858793479547}
   - {fileID: 3376056983013688725}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
   m_RootBone: {fileID: 6461436072956897166}
   m_AABB:
     m_Center: {x: 0.0000000088475645, y: 0.019354708, z: -0.022495568}
@@ -1250,7 +1251,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2216742286361919349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1780,7 +1781,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3732674049844488603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2131,7 +2132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1599478547223593589
 Transform:
   m_ObjectHideFlags: 0
@@ -2192,7 +2193,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300008, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
   m_Bones:
   - {fileID: 6461436072956897166}
   - {fileID: 2301325535273937201}
@@ -3265,7 +3266,7 @@ MonoBehaviour:
     Hair: 14
     Beard: -1
     Hat: -1
-    Shirt: -1
+    Shirt: 4
     Pants: 0
     Shoes: 4
     Accessory: -1
@@ -3469,7 +3470,7 @@ MonoBehaviour:
   - blendshapeName: BackpackOffset
     type: 50
     group: 2
-    value: 0
+    value: 100
   Skin: {r: 0.8018868, g: 0.54291266, b: 0.45768067, a: 1}
   Eye: {r: 0.23487006, g: 0.33179078, b: 0.5471698, a: 0}
   Hair: {r: 0.735849, g: 0.3921921, b: 0.13536847, a: 0}
@@ -3610,7 +3611,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7775654124498182312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3750,7 +3751,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7831386446136511384}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

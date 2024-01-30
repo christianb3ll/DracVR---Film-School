@@ -7,8 +7,8 @@ public class ZoomControls : MonoBehaviour
     private float initialFOV = 60;
     private float btnAngle = 11;
 
-    private bool zoomingIn;
-    private bool zoomingOut;
+    private bool zoomingIn = false;
+    private bool zoomingOut = false;
 
     [SerializeField]
     private Camera cam;
@@ -19,8 +19,8 @@ public class ZoomControls : MonoBehaviour
     [SerializeField]
     private float zoomSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+    // Initialise state on awake
+    void OnEnable()
     {
         // Set the initial zoom states to false
         zoomingIn = false;
