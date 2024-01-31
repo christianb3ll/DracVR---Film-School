@@ -18,6 +18,8 @@ public class ShotClassifier : MonoBehaviour
     private MarkerManager draculaMarkers;
 
     private bool harkerFacingCamera;
+    private bool harkerObscured;
+
     private bool harkerBoundsVisible;
     private bool harkerHeadVisible;
     private bool harkerNeckVisible;
@@ -40,6 +42,9 @@ public class ShotClassifier : MonoBehaviour
     void Update()
     {
         harkerFacingCamera = SetFacingCamera(harker.transform);
+
+        harkerObscured = Physics.Linecast(harkerMarkers.GetWaistMarker().position, cam.transform.position);
+
         SetVisibleMarkers(harkerMarkers);
 
         SetShotType(
@@ -74,7 +79,7 @@ public class ShotClassifier : MonoBehaviour
 
     private void SetShotType(bool facingCamera, bool boundsVisible, bool headVisible, bool neckVisible, bool waistVisible, bool footVisible)
     {
-        if (facingCamera)
+        if (facingCamera && !harkerObscured)
         {
             if (headVisible && footVisible)
             {
