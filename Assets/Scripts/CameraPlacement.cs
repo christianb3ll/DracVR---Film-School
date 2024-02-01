@@ -15,7 +15,7 @@ public class CameraPlacement : MonoBehaviour
     private bool[] activeCameras = new bool[5];
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for(int i = 0; i < activeCameras.Length; i++)
         {

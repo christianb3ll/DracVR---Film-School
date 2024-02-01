@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_JoystickMotion: 1
+  m_JoystickMotion: 2
   m_Handle: {fileID: 8749775195883167375}
   m_Value: {x: 0, y: 0}
   m_RecenterOnRelease: 0
