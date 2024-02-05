@@ -116,6 +116,7 @@ public class CameraPlacement : MonoBehaviour
 
             // Set the camera as the target object for the tripod socket interactor
             tripod.GetComponent<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
+            //tripod.GetComponent<XRSocketInteractor>().attachTransform = tripod.transform.Find("CameraAttach");
 
         }
     }
