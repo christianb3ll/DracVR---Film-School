@@ -1617,6 +1617,22 @@ MonoBehaviour:
     yOffset: 0
     mats:
     - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Harker Shirt
+    mesh:
+    - {fileID: -2306103742924061089, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    - {fileID: -2306103742924061089, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    - {fileID: -2306103742924061089, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    - {fileID: -2306103742924061089, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    hideParts:
+    - Stomach
+    - Chest
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 9befbd41506354f6f85ef6c8f24ddd29, type: 2}
+    - {fileID: 2100000, guid: 1bb29ce9df7c54d5891061641d947d60, type: 2}
+    - {fileID: 2100000, guid: a9ddf1878a1ed4ce9afc40d14bc5bd91, type: 2}
+    - {fileID: 2100000, guid: 3daad36fd8ef54b86a42c25bb1fba68b, type: 2}
+    - {fileID: 2100000, guid: d401d636f7ed04078a25f4420e4fc814, type: 2}
   pantsPresets:
   - name: Pants Type 1
     mesh:
@@ -1824,6 +1840,19 @@ MonoBehaviour:
     yOffset: 0
     mats:
     - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - name: Harker Pants
+    mesh:
+    - {fileID: 5614042368118233306, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    - {fileID: 5614042368118233306, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    - {fileID: 5614042368118233306, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    - {fileID: 5614042368118233306, guid: 61830a53c693e470082e4e981da80303, type: 3}
+    hideParts:
+    - Hip
+    - Legs
+    - ShinUpper
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 9befbd41506354f6f85ef6c8f24ddd29, type: 2}
   shoesPresets:
   - name: Shoes Type 1
     mesh:

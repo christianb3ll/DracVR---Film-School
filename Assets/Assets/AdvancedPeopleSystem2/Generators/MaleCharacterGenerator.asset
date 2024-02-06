@@ -26,10 +26,10 @@ MonoBehaviour:
     Max: 12
   shirt:
     Min: 0
-    Max: 15
+    Max: 16
   pants:
     Min: 0
-    Max: 15
+    Max: 16
   shoes:
     Min: 0
     Max: 15

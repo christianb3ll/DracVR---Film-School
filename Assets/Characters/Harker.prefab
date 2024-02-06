@@ -1615,6 +1615,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5078954197121257369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2676486928112667658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346563890045370450}
+  m_Layer: 0
+  m_Name: BoundsMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346563890045370450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676486928112667658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.114, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5002373625683123975}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2700688334086742311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1812,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3732674049844488603}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1997,7 +2028,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - {fileID: 2100000, guid: 9befbd41506354f6f85ef6c8f24ddd29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2022,7 +2053,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300006, guid: 6b036e5ea9c3249478ef41551b276eaf, type: 3}
+  m_Mesh: {fileID: 5614042368118233306, guid: 61830a53c693e470082e4e981da80303, type: 3}
   m_Bones:
   - {fileID: 6461436072956897166}
   - {fileID: 2301325535273937201}
@@ -2168,7 +2199,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f3d17836a87ae942ac524d7020ac829, type: 2}
+  - {fileID: 2100000, guid: 9befbd41506354f6f85ef6c8f24ddd29, type: 2}
+  - {fileID: 2100000, guid: 1bb29ce9df7c54d5891061641d947d60, type: 2}
+  - {fileID: 2100000, guid: a9ddf1878a1ed4ce9afc40d14bc5bd91, type: 2}
+  - {fileID: 2100000, guid: 3daad36fd8ef54b86a42c25bb1fba68b, type: 2}
+  - {fileID: 2100000, guid: d401d636f7ed04078a25f4420e4fc814, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2193,7 +2228,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300008, guid: 4b3d6be02d496cc4ba6547ed6122d614, type: 3}
+  m_Mesh: {fileID: -2306103742924061089, guid: 61830a53c693e470082e4e981da80303, type: 3}
   m_Bones:
   - {fileID: 6461436072956897166}
   - {fileID: 2301325535273937201}
@@ -3136,6 +3171,7 @@ GameObject:
   - component: {fileID: 5002373625683123975}
   - component: {fileID: 1759263977557675530}
   - component: {fileID: 6968793042139895342}
+  - component: {fileID: 7623224872989024844}
   m_Layer: 0
   m_Name: Harker
   m_TagString: Untagged
@@ -3178,6 +3214,7 @@ Transform:
   - {fileID: 8943290693648861229}
   - {fileID: 1277754170455017770}
   - {fileID: 6833882138858012491}
+  - {fileID: 346563890045370450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1759263977557675530
@@ -3266,8 +3303,8 @@ MonoBehaviour:
     Hair: 14
     Beard: -1
     Hat: -1
-    Shirt: 4
-    Pants: 0
+    Shirt: 16
+    Pants: 16
     Shoes: 4
     Accessory: -1
     Item1: -1
@@ -3354,7 +3391,7 @@ MonoBehaviour:
   - blendshapeName: Eye_ScaleY
     type: 21
     group: 1
-    value: 45
+    value: -0
   - blendshapeName: Eye_Size
     type: 22
     group: 1
@@ -3422,7 +3459,7 @@ MonoBehaviour:
   - blendshapeName: Mouth_Open
     type: 38
     group: 1
-    value: 15
+    value: 0
   - blendshapeName: Mouth_Bulging
     type: 39
     group: 1
@@ -3450,7 +3487,7 @@ MonoBehaviour:
   - blendshapeName: Smile
     type: 45
     group: 1
-    value: -3
+    value: 0
   - blendshapeName: Sadness
     type: 46
     group: 1
@@ -3510,6 +3547,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7623224872989024844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445725309065599679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fb84c510c444324bf806bdc73b6506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsMarker: {fileID: 346563890045370450}
+  headMarker: {fileID: 2592066558117948528}
+  neckMarker: {fileID: 5078954197121257369}
+  waistMarker: {fileID: 6461436072956897166}
+  footMarker: {fileID: 7247896924126031143}
 --- !u!1 &7486834673585805283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,7 +3665,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7775654124498182312}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4521,7 +4575,7 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - -20
-  - 45
+  - -0
   - 0
   - 30
   - -18
@@ -4538,17 +4592,17 @@ SkinnedMeshRenderer:
   - -5
   - -14
   - 22
-  - -100
-  - 6
-  - 39
-  - 2
+  - -35
+  - 40
+  - 21
+  - 0
   - 48
   - 14
   - 35
   - 10
-  - -3
+  - 0
   - 17
-  - 28
+  - 59
   - -10
   - 2
   - 0
