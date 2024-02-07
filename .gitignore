@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Mac Files
 .DS_Store
+
+# Ignore wav files
+.wav

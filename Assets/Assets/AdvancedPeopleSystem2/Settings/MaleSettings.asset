@@ -1626,6 +1626,8 @@ MonoBehaviour:
     hideParts:
     - Stomach
     - Chest
+    - Arms
+    - Shoulders
     yOffset: 0
     mats:
     - {fileID: 2100000, guid: 9befbd41506354f6f85ef6c8f24ddd29, type: 2}
@@ -1633,6 +1635,19 @@ MonoBehaviour:
     - {fileID: 2100000, guid: a9ddf1878a1ed4ce9afc40d14bc5bd91, type: 2}
     - {fileID: 2100000, guid: 3daad36fd8ef54b86a42c25bb1fba68b, type: 2}
     - {fileID: 2100000, guid: d401d636f7ed04078a25f4420e4fc814, type: 2}
+  - name: Dracula Shirt
+    mesh:
+    - {fileID: -9130705328863588824, guid: d367c3cfb45f6475e96920134810d85c, type: 3}
+    - {fileID: -9130705328863588824, guid: d367c3cfb45f6475e96920134810d85c, type: 3}
+    - {fileID: -9130705328863588824, guid: d367c3cfb45f6475e96920134810d85c, type: 3}
+    - {fileID: -9130705328863588824, guid: d367c3cfb45f6475e96920134810d85c, type: 3}
+    hideParts:
+    - Stomach
+    - Arms
+    - Shoulders
+    yOffset: 0
+    mats:
+    - {fileID: 2100000, guid: 63d881345160dbd47a7680f8e3f8d5ca, type: 3}
   pantsPresets:
   - name: Pants Type 1
     mesh:
