@@ -14,8 +14,8 @@ TagManager:
   - HideMainCamera
   - HideSceneCameras
   - HideAllCameras
-  - 
-  - 
+  - TeleportArea
+  - CameraArea
   - 
   - 
   - 
