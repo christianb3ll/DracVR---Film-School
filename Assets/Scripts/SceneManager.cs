@@ -13,6 +13,7 @@ public class SceneManager : MonoBehaviour
     {
         Playback,
         Recording,
+        Paused,
         Stopped
     }
 
@@ -36,7 +37,6 @@ public class SceneManager : MonoBehaviour
     public TimelineAsset timeline;
     private bool recordingExists;
     
-
     // Camera Materials
     public Material[] camMaterials;
 
@@ -71,20 +71,25 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // other states necessary?
         switch (currentState)
         {
             case SceneState.Stopped :
                 break;
+            case SceneState.Paused:
+                break;
             case SceneState.Playback :
                 if(markerQueue.Count > 0)
                 {
-                    testCube.GetComponent<MeshRenderer>().material = red;
+                    // Set the next mark in the queue
                     CameraMarker nextMark = markerQueue.Peek();
+
+                    // Check if current time has passed the time of the next marker
                     if (playableDirector.time >= nextMark.timestamp)
                     {
-                        
-                        testCube.GetComponent<MeshRenderer>().material = green;
+                        // dequeue the marker
                         CameraMarker marker = markerQueue.Dequeue();
+                        // set the active camera to the current marker
                         SetCamera(marker.camID);
                     }
                 }
@@ -103,6 +108,7 @@ public class SceneManager : MonoBehaviour
     // Sets up playback for the scene
     public void StartPlayback()
     {
+        // don't start playback unless a recording has bee made
         if (recordingExists)
         {
             // Hide the animated characters from the live environment
@@ -113,7 +119,9 @@ public class SceneManager : MonoBehaviour
             SetGameLayerRecursive(harkerStandin, hideSceneCameraLayer);
             SetGameLayerRecursive(draculaStandin, hideSceneCameraLayer);
 
+            // start the timeline
             playableDirector.Play();
+            // set the playback state to playing
             currentState = SceneState.Playback;
 
             // setup the queue
@@ -122,6 +130,7 @@ public class SceneManager : MonoBehaviour
         
     }
 
+    // ends the playback state
     public void EndPlayback()
     {
         if(playableDirector.state == PlayState.Playing && currentState == SceneState.Playback)
@@ -136,17 +145,24 @@ public class SceneManager : MonoBehaviour
 
             // Reset the scene
             ResetPlayback();
+            // set playback to stopped state
             currentState = SceneState.Stopped;
+            // clear the marker queue
             markerQueue.Clear();
         }
         
     }
 
+    // handles Stop button on the console
     public void StopBtn()
     {
+        // check the current state
         switch (currentState)
         {
             case SceneState.Playback:
+                EndPlayback();
+                break;
+            case SceneState.Paused:
                 EndPlayback();
                 break;
             case SceneState.Recording:
@@ -159,36 +175,48 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    // Starts the cene in recording state
     public void StartRecording()
     {
+        // Only start trecording from sstopped state
         if(currentState == SceneState.Stopped)
         {
+            // start the scene
             playableDirector.Play();
+            // set the state to recording
             currentState = SceneState.Recording;
         }
     }
 
+    // Ends the recording. Called when a recording fully completes without abort
     public void EndRecording()
     {
+        // Ensure we are recording
         if(currentState == SceneState.Recording)
-        {
-            if (!recordingExists) recordingExists = true;
+        {        
+            recordingExists = true;
+            // set the playback state to stopped
             currentState = SceneState.Stopped;
+            // sort the recorded markers
             markers.Sort(SortByTimestamp);
         }
     }
 
+    // Called on cut or stop button press
     public void AbortRecording()
     {
+        // check if currently recording
         if (currentState == SceneState.Recording)
         {
+            // reset the playback state
             ResetPlayback();
+            // set the playback state to stopped
             currentState = SceneState.Stopped;
         }
             
     }
 
-    // Resets the playback of the scene to frame 0
+    // Resets the playback of the scene to frame 0 and stops the playback
     private void ResetPlayback()
     {
         playableDirector.time = 0;
@@ -203,6 +231,8 @@ public class SceneManager : MonoBehaviour
         return marker1.timestamp.CompareTo(marker2.timestamp);
     }
 
+    // recursive function to set the layer for an object and its children
+    // based on the example:
     // https://forum.unity.com/threads/help-with-layer-change-in-all-children.779147/
     private void SetGameLayerRecursive(GameObject gameObject, int layer)
     {
@@ -213,13 +243,17 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    // Sets a marker at the current timestamp for a given camera ID
     public void SetMarker(int id)
     {
+        // check that we are recording
         if (currentState == SceneState.Recording)
         {
             // Setup the marker object
             CameraMarker marker = new CameraMarker();
+            // set the timestamp to the current time
             marker.timestamp = playableDirector.time;
+
             marker.camID = id;
 
             // Add the new marker to the list
@@ -234,6 +268,7 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    // Sets the given camera ID to display on the monitor
     private void SetCamera(int id)
     {
         // Change the material for the screen
@@ -242,6 +277,7 @@ public class SceneManager : MonoBehaviour
     }
 }
 
+// Camera marker class
 public class CameraMarker : MonoBehaviour
 {
     public double timestamp { get; set; }

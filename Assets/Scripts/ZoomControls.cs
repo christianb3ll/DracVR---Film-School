@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Manages camera zoom and handles zoom button visuals
 public class ZoomControls : MonoBehaviour
 {
     private float initialFOV = 60;
@@ -19,7 +20,7 @@ public class ZoomControls : MonoBehaviour
     [SerializeField]
     private float zoomSpeed;
 
-    // Initialise state on awake
+    // Initialise state on enable
     void OnEnable()
     {
         // Set the initial zoom states to false
@@ -30,9 +31,19 @@ public class ZoomControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if zooming in or out and set the camera FOV
-        if(zoomingOut) cam.fieldOfView = Mathf.Clamp(Mathf.MoveTowards(cam.fieldOfView, initialFOV, zoomSpeed * Time.deltaTime), initialFOV - maxZoom, initialFOV );
-        if(zoomingIn) cam.fieldOfView = Mathf.Clamp(Mathf.MoveTowards(cam.fieldOfView, initialFOV - maxZoom, zoomSpeed * Time.deltaTime), initialFOV - maxZoom, initialFOV);
+        // Check if zooming in or out and set the camera FOV and clamp between min and max
+        if(zoomingOut) cam.fieldOfView = Mathf.Clamp(
+            Mathf.MoveTowards(cam.fieldOfView,
+            initialFOV,
+            zoomSpeed * Time.deltaTime),
+            initialFOV - maxZoom,
+            initialFOV );
+        if(zoomingIn) cam.fieldOfView = Mathf.Clamp(
+            Mathf.MoveTowards(cam.fieldOfView,
+            initialFOV - maxZoom,
+            zoomSpeed * Time.deltaTime),
+            initialFOV - maxZoom,
+            initialFOV);
     }
 
     // Zoom Out button functionality
@@ -40,7 +51,6 @@ public class ZoomControls : MonoBehaviour
     public void ZoomOut()
     {
         if (!zoomingOut) gameObject.transform.Rotate(0f, btnAngle, 0);
-        
         zoomingOut = true;
         zoomingIn = false;
 
@@ -51,7 +61,6 @@ public class ZoomControls : MonoBehaviour
     public void ZoomIn()
     {
         if (!zoomingIn) gameObject.transform.Rotate(0f, -btnAngle, 0);
-
         zoomingIn = true;
         zoomingOut = false;
 

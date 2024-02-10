@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+// Managed the placement of cameras
 public class CameraPlacement : MonoBehaviour
 {
     public GameObject[] cameraObjects;
@@ -14,14 +15,14 @@ public class CameraPlacement : MonoBehaviour
 
     private bool[] activeCameras = new bool[5];
 
-    // Start is called before the first frame update
+    // Dissable all cameras on Awake
     void Awake()
     {
         for(int i = 0; i < activeCameras.Length; i++)
         {
             DeactivateCamera(i);
         }
-
+        // reacctivate the first camera
         ActivateCamera(0);
     }
 
@@ -39,14 +40,9 @@ public class CameraPlacement : MonoBehaviour
         cameraObjects[camID].SetActive(false);
     }
 
-    // Places a camera at the desired location
+    // Places a camera at the player location
     public void PlaceCamera()
     {
-
-        
-
-
-
         // Initialise Cam ID to -1 as null value
         int camID = -1;
 
@@ -58,7 +54,6 @@ public class CameraPlacement : MonoBehaviour
                 camID = i;
                 activeCameras[i] = true;
             }
-
         }
 
         // Check that camID is not a null value
@@ -66,23 +61,6 @@ public class CameraPlacement : MonoBehaviour
         {
             // Activate the camera
             cameraObjects[camID].SetActive(true);
-
-
-            //Vector3 playerPos = poseManager.GetPlayerPos();
-            //Vector3 playerDir = poseManager.GetPlayerDir();
-            //Quaternion playerRotation = poseManager.GetPlayerRotation();
-            //Quaternion cameraRotation = poseManager.GetPlayerRotation();
-
-            //// Set the camera position to be slightly in front of the player
-            //Vector3 newCamPos = playerPos + playerDir * camPositionOffset;
-
-            //GameObject camBody = camera.transform.Find("CamAnchor").gameObject;
-
-            //playerRotation.SetLookRotation(new Vector3(playerDir.x, 0, playerDir.z), Vector3.up);
-            //cameraRotation.SetLookRotation(playerDir, Vector3.up);
-
-            //camera.transform.SetPositionAndRotation(new Vector3(newCamPos.x, camHeight + groundLevel, newCamPos.z), playerRotation);
-            //camBody.transform.rotation = cameraRotation;
 
             // initialise position
             Vector3 userPos = Camera.main.transform.position;
@@ -95,17 +73,9 @@ public class CameraPlacement : MonoBehaviour
             // new possition with camera offset
             Vector3 newPos = userPos + userDir * cameraOffset;
 
-            // Get the tripod head
-
             // calculate new rotations
             userRotation.SetLookRotation(new Vector3(userDir.x, 0, userDir.z), Vector3.up);
             cameraRotation.SetLookRotation(userDir, Vector3.up);
-
-            // Apply tripod rotation
-
-
-            // Apply camera rotation
-
 
             // Instantiate a tripod at the user's location
             GameObject tripod = Instantiate(
@@ -116,7 +86,6 @@ public class CameraPlacement : MonoBehaviour
 
             // Set the camera as the target object for the tripod socket interactor
             tripod.GetComponent<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
-            //tripod.GetComponent<XRSocketInteractor>().attachTransform = tripod.transform.Find("CameraAttach");
 
         }
     }
