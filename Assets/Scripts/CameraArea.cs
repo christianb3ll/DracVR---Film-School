@@ -14,7 +14,7 @@ public class CameraArea : MonoBehaviour
     {
         interactor = gameObject.GetComponent<XRSimpleInteractable>();
         //interactor.GetAttachTransform()
-        base.
+        
     }
 
     // Update is called once per frame
