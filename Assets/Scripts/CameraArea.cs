@@ -34,6 +34,7 @@ public class CameraArea : MonoBehaviour
             }
             Vector3 cameraPos = rayHit.point;
             testObj.transform.position = cameraPos;
+         
         }
         // check if selected
         // get user input and update camera rotatio
