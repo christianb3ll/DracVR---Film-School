@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 1268889218074702810}
   - component: {fileID: 9158223190085228273}
   - component: {fileID: 399563349305550672}
-  - component: {fileID: 4289698932347977467}
   m_Layer: 0
   m_Name: TripodBase
   m_TagString: Untagged
@@ -282,20 +281,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.13898921
   m_Center: {x: 0, y: 1.4748187, z: 0}
---- !u!114 &4289698932347977467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4780404610008610951}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a6fa7929f8f441ca190f4619eb6649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headTransform: {fileID: 2589049522666868146}
-  tripodHead: {fileID: 210113179719696678, guid: bd3f9c3c7aff143be892feca23a7bb96, type: 3}
 --- !u!1 &6929173830846917905
 GameObject:
   m_ObjectHideFlags: 0
