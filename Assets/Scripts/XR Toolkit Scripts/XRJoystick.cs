@@ -266,7 +266,14 @@ namespace UnityEngine.XR.Content.Interaction
             var largerComp = Mathf.Max(Mathf.Abs(xComp), Mathf.Abs(zComp));
             var yComp = Mathf.Sqrt(1.0f - largerComp * largerComp);
 
+            Debug.Log("up * yComp is: " + transform.up * yComp);
+            Debug.Log("right * xComp is: " + transform.right * xComp);
+            Debug.Log("forward * zComp is: " + transform.forward * zComp);
+
             m_Handle.up = (transform.up * yComp) + (transform.right * xComp) + (transform.forward * zComp);
+           
+            Debug.Log("m_handle.up is: " + m_Handle.up);
+            
         }
 
         void OnDrawGizmosSelected()
