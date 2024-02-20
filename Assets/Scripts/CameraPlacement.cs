@@ -40,6 +40,19 @@ public class CameraPlacement : MonoBehaviour
         cameraObjects[camID].SetActive(false);
     }
 
+    // Method for checking if cameras can be placed
+    public bool CamerasAvailable()
+    {
+        for (int i = 0; i < activeCameras.Length; i++)
+        {
+            if (activeCameras[i] == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Places a camera at the player location
     public void PlaceCamera()
     {
@@ -83,6 +96,37 @@ public class CameraPlacement : MonoBehaviour
 
             // Set the tilt of the tripod
             // Transform tripodTilt = tripod.transform.Find("PanHandle/PanTransform/TiltHandle/HandleGrip");
+
+            // Set the camera as the target object for the tripod socket interactor
+            tripod.GetComponent<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
+
+        }
+    }
+
+    // Places a camera at the specified transform
+    public void PlaceCamera(Transform location)
+    {
+        // Initialise Cam ID to -1 as null value
+        int camID = -1;
+
+        // Check currently active cameras and find the first inactive camera
+        for (int i = 0; i < activeCameras.Length; i++)
+        {
+            if (activeCameras[i] == false && camID == -1)
+            {
+                camID = i;
+                activeCameras[i] = true;
+            }
+        }
+
+        // Check that camID is not a null value
+        if (camID != -1)
+        {
+            // Activate the camera
+            cameraObjects[camID].SetActive(true);
+
+            // Instantiate a tripod at the chosen location
+            GameObject tripod = Instantiate(tripodPrefab, location.position, location.rotation);
 
             // Set the camera as the target object for the tripod socket interactor
             tripod.GetComponent<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());

@@ -2,72 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
 
+// CameraArea class handles the interface for placing cameras
+// and adds functionality for manipulating rotation
 public class CameraArea : MonoBehaviour
 {
-    // Setup the interactor
-    XRSimpleInteractable interactor;
+    private XRSimpleInteractable interactable;
 
-    public XRRayInteractor cameraRay;
+    public CameraPlacement cameraPlacement;
 
-    public GameObject testObj;
+    // User input variables
+    public InputActionReference thumbstickLeft;
+    public float rotateSpeed;
 
-    // Start is called before the first frame update
+    public GameObject reticle;
+
+
+
     void Start()
     {
-        interactor = gameObject.GetComponent<XRSimpleInteractable>();
-        //interactor.GetAttachTransform()
-
-
+        // Get the interactable
+        interactable = GetComponent<XRSimpleInteractable>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (interactor.isHovered)
+        // Check if the interactable is currently selected
+        if (interactable.isSelected)
         {
-            RaycastHit rayHit;
-            cameraRay.TryGetCurrent3DRaycastHit(out rayHit);
-            if (rayHit.colliderInstanceID == gameObject.GetInstanceID())
-            {
-                Debug.Log("Got the ID");
-            }
-            Vector3 cameraPos = rayHit.point;
-            testObj.transform.position = cameraPos;
-         
+            ShowReticle();
+
+            // Get the rotation value of the thumbstick
+            float rotation = thumbstickLeft.action.ReadValue<Vector2>().x;
+
+            // Apply the rotation around the y axis
+            reticle.transform.Rotate(0, rotation * rotateSpeed, 0);
         }
-        // check if selected
-        // get user input and update camera rotatio
     }
 
-    public void TestSelect()
+    // Activates the reticle on hover and updates position
+    public void OnHover()
     {
-
+        ShowReticle();
+        reticle.transform.position = gameObject.transform.position;
     }
 
-    // On Select
-    // Create a camera reticle
-    // freeze or hide ray
-    //
-
-    // On deselect
-    // re-enable the ray
-    // destroy the reticle
-
-    // On activate
-    // https://forum.unity.com/threads/grab-interactable-anchor-control-without-motion-input.1540358/
-
-    // TryGetCurrent3DRaycastHit()
-
-
-    public void PlaceCamera()
+    // Show reticle
+    public void ShowReticle()
     {
-        RaycastHit rayHit;
-        cameraRay.TryGetCurrent3DRaycastHit(out rayHit);
+        reticle.SetActive(true);
+    }
 
-        Transform cameraPos = rayHit.transform;
+    // Hide reticle
+    public void HideReticle()
+    {
+        reticle.SetActive(false);
+    }
 
-        Instantiate(testObj, cameraPos.position, Quaternion.identity);
+    public void OnActivate()
+    {
+
+        cameraPlacement.PlaceCamera(reticle.transform);
     }
 
 }
