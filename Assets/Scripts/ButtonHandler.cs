@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class ButtonHandler : MonoBehaviour
 {
+    private GameObject[] camBtns;
+
     private bool isPressed;
     private Vector3 initialPos;
 
@@ -23,6 +25,11 @@ public class ButtonHandler : MonoBehaviour
     {
         isPressed = false;
         initialPos = gameObject.transform.position;
+
+        if(camBtns == null)
+        {
+            camBtns = GameObject.FindGameObjectsWithTag("camBtn");
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +48,10 @@ public class ButtonHandler : MonoBehaviour
             initialPos.z
             );
             ButtonPress.Invoke();
+            if (!toggleableBtn)
+            {
+                StartCoroutine("ButtonReset");
+            }
         } else
         {
             gameObject.transform.position = initialPos;
@@ -58,5 +69,33 @@ public class ButtonHandler : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material = btnInactiveMaterial;
         }
+    }
+
+    private bool GetButtonState()
+    {
+        return isPressed;
+    }
+
+    public void SetCamBtnStates()
+    {
+        foreach (GameObject camBtn in camBtns)
+        {
+            if(!ReferenceEquals(camBtn, gameObject))
+            {
+                ButtonHandler btn = camBtn.GetComponent<ButtonHandler>();
+                if (btn.GetButtonState())
+                {
+                    btn.OnPress();
+                    btn.SetCamBtnMaterials();
+                }
+            } 
+        }
+    }
+
+    IEnumerator ButtonReset()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameObject.transform.position = initialPos;
+
     }
 }
