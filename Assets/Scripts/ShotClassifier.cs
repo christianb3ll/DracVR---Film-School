@@ -223,6 +223,9 @@ public class ShotClassifier : MonoBehaviour
             case ShotType.Unknown:
                 shotName = "Unknown";
                 break;
+            default:
+                shotName = "Unknown";
+                break;
         }
 
         textTest.text = shotName;

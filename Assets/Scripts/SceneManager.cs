@@ -42,6 +42,8 @@ public class SceneManager : MonoBehaviour
 
     public MeshRenderer screen;
 
+    private CameraMarker startMarker;
+
     private List<CameraMarker> markers = new();
     // need a temp list in case of aborted recording
 
@@ -265,6 +267,15 @@ public class SceneManager : MonoBehaviour
             // DEBUG TEXT
             setText.text = "Marker " + id + " added at " + playableDirector.time;
             lengthText.text = markers.Count.ToString();
+        }
+        // If not playing set the starting camera 
+        else if(currentState == SceneState.Stopped)
+        {
+            startMarker = new CameraMarker();
+            startMarker.timestamp = 0;
+            startMarker.camID = id;
+
+            SetCamera(id);
         }
     }
 
