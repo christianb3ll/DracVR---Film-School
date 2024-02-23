@@ -12,8 +12,7 @@ public class SceneManager : MonoBehaviour
     private enum SceneState
     {
         Playback,
-        Recording,
-        Paused,
+        Live,
         Stopped
     }
 
@@ -25,6 +24,9 @@ public class SceneManager : MonoBehaviour
 
     public GameObject dracula;
     public GameObject draculaStandin;
+
+    public GameObject bats;
+    public GameObject briefcase;
 
     // Layers to manage object/camera visibility
     int hideMainCameraLayer;
@@ -40,21 +42,24 @@ public class SceneManager : MonoBehaviour
     // Camera Materials
     public Material[] camMaterials;
 
+    // Black and white camera materials
+    public Material[] camBWMaterials;
+
+    private bool isBlackAndWhite;
+
     public MeshRenderer screen;
 
+    private bool recordMarkers;
     private CameraMarker startMarker;
 
     private List<CameraMarker> markers = new();
-    // need a temp list in case of aborted recording
 
     private Queue<CameraMarker> markerQueue;
 
-    // DEBUG
-    public TextMeshPro lengthText;
-    public TextMeshPro setText;
-    public GameObject testCube;
-    public Material red;
-    public Material green;
+    public TextMeshPro consoleLogText;
+
+    public UnityEvent SceneStartEvents;
+    public UnityEvent SceneEndEvents;
 
     // Start is called before the first frame update
     void Start()
@@ -68,43 +73,40 @@ public class SceneManager : MonoBehaviour
         // Prevent playback until the user has recorded a scene
         recordingExists = false;
         currentState = SceneState.Stopped;
+
+        // Sets Black and white to false
+        isBlackAndWhite = false;
+
+        // Set recording markers to false
+        recordMarkers = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // other states necessary?
-        switch (currentState)
+        if(currentState == SceneState.Playback)
         {
-            case SceneState.Stopped :
-                break;
-            case SceneState.Paused:
-                break;
-            case SceneState.Playback :
-                if(markerQueue.Count > 0)
+            if (markerQueue.Count > 0)
+            {
+                // Set the next mark in the queue
+                CameraMarker nextMark = markerQueue.Peek();
+
+                // Check if current time has passed the time of the next marker
+                if (playableDirector.time >= nextMark.timestamp)
                 {
-                    // Set the next mark in the queue
-                    CameraMarker nextMark = markerQueue.Peek();
-
-                    // Check if current time has passed the time of the next marker
-                    if (playableDirector.time >= nextMark.timestamp)
-                    {
-                        // dequeue the marker
-                        CameraMarker marker = markerQueue.Dequeue();
-                        // set the active camera to the current marker
-                        SetCamera(marker.camID);
-                    }
+                    // dequeue the marker
+                    CameraMarker marker = markerQueue.Dequeue();
+                    // set the active camera to the current marker
+                    SetCamera(marker.camID);
                 }
-                break;
-            case SceneState.Recording:
+            }
+        }        
+    }
 
-                break;
-            default:
-
-                break;
-
-        }
-        
+    // Checks if the scene is in the stopped state
+    public bool SceneStopped()
+    {
+        return currentState == SceneState.Stopped;
     }
 
     // Sets up playback for the scene
@@ -113,9 +115,12 @@ public class SceneManager : MonoBehaviour
         // don't start playback unless a recording has bee made
         if (recordingExists)
         {
+            SceneStartEvents.Invoke();
             // Hide the animated characters from the live environment
             SetGameLayerRecursive(harker, hideMainCameraLayer);
             SetGameLayerRecursive(dracula, hideMainCameraLayer);
+            SetGameLayerRecursive(bats, hideMainCameraLayer);
+            SetGameLayerRecursive(briefcase, hideMainCameraLayer);
 
             // Hide the standin characters from the scene cameras
             SetGameLayerRecursive(harkerStandin, hideSceneCameraLayer);
@@ -128,92 +133,79 @@ public class SceneManager : MonoBehaviour
 
             // setup the queue
             markerQueue = new Queue<CameraMarker>(markers);
+        } else
+        {
+            Log("No Recording Exists!");
         }
+
         
     }
 
-    // ends the playback state
+    // starts the live scene
+    public void StartLive()
+    {
+        SceneStartEvents.Invoke();
+        // Only start trecording from stopped state
+        if (currentState == SceneState.Stopped)
+        {
+            // start the scene
+            playableDirector.Play();
+            // set the state to Live
+            currentState = SceneState.Live;
+        }
+    }
+
+    // ends the scene
     public void EndPlayback()
     {
-        if(playableDirector.state == PlayState.Playing && currentState == SceneState.Playback)
+        if(playableDirector.state == PlayState.Playing)
         {
-            // Return the characters to the default layer
-            SetGameLayerRecursive(harker, defaultLayer);
-            SetGameLayerRecursive(dracula, defaultLayer);
+            if(currentState == SceneState.Playback)
+            {
+                // Return the characters to the default layer
+                SetGameLayerRecursive(harker, defaultLayer);
+                SetGameLayerRecursive(dracula, defaultLayer);
+                SetGameLayerRecursive(bats, defaultLayer);
+                SetGameLayerRecursive(briefcase, defaultLayer);
 
-            // Hide standins from all cameras
-            SetGameLayerRecursive(harkerStandin, hideAllCameraLayer);
-            SetGameLayerRecursive(draculaStandin, hideAllCameraLayer);
+                // Hide standins from all cameras
+                SetGameLayerRecursive(harkerStandin, hideAllCameraLayer);
+                SetGameLayerRecursive(draculaStandin, hideAllCameraLayer);
+
+                // clear the marker queue
+                markerQueue.Clear();
+
+                if (recordMarkers)
+                {
+                    // sort the recorded markers
+                    markers.Sort(SortByTimestamp);
+                }
+            }
+
+            if(currentState == SceneState.Live) recordingExists = true;
+
 
             // Reset the scene
             ResetPlayback();
             // set playback to stopped state
             currentState = SceneState.Stopped;
-            // clear the marker queue
-            markerQueue.Clear();
+           
+            SceneEndEvents.Invoke();
         }
         
     }
 
-    // handles Stop button on the console
-    public void StopBtn()
-    {
-        // check the current state
-        switch (currentState)
-        {
-            case SceneState.Playback:
-                EndPlayback();
-                break;
-            case SceneState.Paused:
-                EndPlayback();
-                break;
-            case SceneState.Recording:
-                AbortRecording();
-                break;
-            default:
-
-                break;
-
-        }
-    }
-
-    // Starts the cene in recording state
-    public void StartRecording()
-    {
-        // Only start trecording from sstopped state
-        if(currentState == SceneState.Stopped)
-        {
-            // start the scene
-            playableDirector.Play();
-            // set the state to recording
-            currentState = SceneState.Recording;
-        }
-    }
-
-    // Ends the recording. Called when a recording fully completes without abort
-    public void EndRecording()
-    {
-        // Ensure we are recording
-        if(currentState == SceneState.Recording)
-        {        
-            recordingExists = true;
-            // set the playback state to stopped
-            currentState = SceneState.Stopped;
-            // sort the recorded markers
-            markers.Sort(SortByTimestamp);
-        }
-    }
-
     // Called on cut or stop button press
-    public void AbortRecording()
+    public void AbortLive()
     {
         // check if currently recording
-        if (currentState == SceneState.Recording)
+        if (currentState == SceneState.Live)
         {
             // reset the playback state
             ResetPlayback();
             // set the playback state to stopped
             currentState = SceneState.Stopped;
+            SceneEndEvents.Invoke();
         }
             
     }
@@ -225,6 +217,13 @@ public class SceneManager : MonoBehaviour
         playableDirector.Evaluate();
         playableDirector.Stop();
         
+    }
+
+    // Toggle recording markers
+    public void ToggleMarkerRecording()
+    {
+        recordMarkers = !recordMarkers;
+        if (recordMarkers) Log("Recording Markers");
     }
 
     // Sorting function that allows sorting the marker list according to timestamp
@@ -248,8 +247,8 @@ public class SceneManager : MonoBehaviour
     // Sets a marker at the current timestamp for a given camera ID
     public void SetMarker(int id)
     {
-        // check that we are recording
-        if (currentState == SceneState.Recording)
+        // check that we are playing and deck is set to record markers
+        if (currentState == SceneState.Playback && recordMarkers)
         {
             // Setup the marker object
             CameraMarker marker = new CameraMarker();
@@ -261,12 +260,9 @@ public class SceneManager : MonoBehaviour
             // Add the new marker to the list
             markers.Add(marker);
 
-            // Set the current camera
-            SetCamera(id);
-
-            // DEBUG TEXT
-            setText.text = "Marker " + id + " added at " + playableDirector.time;
-            lengthText.text = markers.Count.ToString();
+            // Log to the in game console
+            string logText = "Marker added for camera " + id;
+            Log(logText);
         }
         // If not playing set the starting camera 
         else if(currentState == SceneState.Stopped)
@@ -274,22 +270,63 @@ public class SceneManager : MonoBehaviour
             startMarker = new CameraMarker();
             startMarker.timestamp = 0;
             startMarker.camID = id;
-
-            SetCamera(id);
         }
+
+        // Set the current camera
+        SetCamera(id);
+    }
+
+    // Clear all markers
+    public void ClearMarkers()
+    {
+        // Only clear markers if stopped
+        if(currentState == SceneState.Stopped)
+        {
+            // clear all markers
+            markers.Clear();
+            Log("Markers cleared");
+        }
+    }
+
+    public void ToggleBlackAndWhite()
+    {
+        isBlackAndWhite = !isBlackAndWhite;
     }
 
     // Sets the given camera ID to display on the monitor
     private void SetCamera(int id)
     {
-        // Change the material for the screen
-        // -1 to convert cameraID to array int
-        screen.material = camMaterials[id - 1];
+        // Check if black and white
+        if (!isBlackAndWhite)
+        {
+            // Change the material for the screen
+            // -1 to convert cameraID to array int
+            screen.material = camMaterials[id - 1];
+        }
+        else
+        {
+            screen.material = camBWMaterials[id - 1];
+        }
+
+        Log("Set to Camera " + id);
+        
     }
+
+    public void Evaluate()
+    {
+        Log("Evaluate functionality coming soon");
+    }
+
+    // Logs messsages to the in-game console 
+    private void Log(string logText)
+    {
+        consoleLogText.text = logText;
+    }
+
 }
 
 // Camera marker class
-public class CameraMarker : MonoBehaviour
+public class CameraMarker
 {
     public double timestamp { get; set; }
     public int camID { get; set; }

@@ -129,8 +129,8 @@ public class CameraPlacement : MonoBehaviour
             GameObject tripod = Instantiate(tripodPrefab, location.position, location.rotation);
 
             // Set the camera as the target object for the tripod socket interactor
-            tripod.GetComponent<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
-
+            tripod.GetComponentInChildren<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
+            
         }
     }
 }

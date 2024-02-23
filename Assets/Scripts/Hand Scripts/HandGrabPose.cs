@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Content.Interaction;
 
 // Hand Pose scripts based on Custom Grab Hand Pose with Unity XR Toolkit
 // Valem Tutorials
@@ -26,12 +27,27 @@ public class HandGrabPose : MonoBehaviour
     {
         // Get the interactable component
         XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
-        // Add the event listeners
-        grabInteractable.selectEntered.AddListener(SetupPose);
-        grabInteractable.selectExited.AddListener(UnsetPose);
+        XRKnob knob = GetComponent<XRKnob>();
+
+        if (grabInteractable != null)
+        {
+            // Add the event listeners
+            grabInteractable.selectEntered.AddListener(SetupPose);
+            grabInteractable.selectExited.AddListener(UnsetPose);
+            
+        }
+
+        if(knob != null)
+        {
+            // Add the event listeners
+            knob.selectEntered.AddListener(SetupPose);
+            knob.selectExited.AddListener(UnsetPose);
+        }
+
         // disables the pose object on start by default
         rightHandPose.gameObject.SetActive(false);
         leftHandPose.gameObject.SetActive(false);
+
     }
 
     // Sets up the hand pose

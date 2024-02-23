@@ -96,6 +96,6 @@ public class ButtonHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         gameObject.transform.position = initialPos;
-
+        isPressed = !isPressed;
     }
 }

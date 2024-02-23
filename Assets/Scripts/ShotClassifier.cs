@@ -68,7 +68,7 @@ public class ShotClassifier : MonoBehaviour
         draculaFramer.shotType = GetCharacterShotType(draculaFramer);
 
         // determines shot type based on both characters
-        shotType = GetShotType(harkerFramer, draculaFramer);
+        shotType = GetShotType(harkerFramer.shotType, draculaFramer.shotType);
 
         // sets text for debug purposes
         SetText();
@@ -100,32 +100,32 @@ public class ShotClassifier : MonoBehaviour
     
 
     // sets the type of shot for the camera
-    private ShotType GetShotType(CharacterFramer char1, CharacterFramer char2)
+    private ShotType GetShotType(ShotType shot1, ShotType shot2)
     {
         ShotType shot;
 
         // Check if either character is in close up
-        if(char1.shotType == ShotType.CloseUp || char2.shotType == ShotType.CloseUp)
+        if(shot1 == ShotType.CloseUp || shot2 == ShotType.CloseUp)
         {
             shot = ShotType.CloseUp;
         }
         // Check if either character is in medium close up
-        else if(char1.shotType == ShotType.MedCloseUp || char2.shotType == ShotType.MedCloseUp)
+        else if(shot1 == ShotType.MedCloseUp || shot2 == ShotType.MedCloseUp)
         {
             shot = ShotType.MedCloseUp;
         }
         // Check if both characters are in Mid Shot, making a Two shot
-        else if (char1.shotType == ShotType.MidShot && char2.shotType == ShotType.MidShot)
+        else if (shot1 == ShotType.MidShot && shot2 == ShotType.MidShot)
         {
             shot = ShotType.TwoShot;
         }
         // Check if at least one character is in mid shot
-        else if (char1.shotType == ShotType.MidShot || char2.shotType == ShotType.MidShot)
+        else if (shot1 == ShotType.MidShot || shot2 == ShotType.MidShot)
         {
             shot = ShotType.MidShot;
         }
         // Check if either is in wideshot
-        else if (char1.shotType == ShotType.WideShot || char2.shotType == ShotType.WideShot)
+        else if (shot1 == ShotType.WideShot || shot2 == ShotType.WideShot)
         {
             shot = ShotType.WideShot;
         } else
@@ -233,7 +233,7 @@ public class ShotClassifier : MonoBehaviour
 }
 
 
-public class CharacterFramer : MonoBehaviour
+public class CharacterFramer
 {
     public bool facingCamera { get; set; }
     public bool obscured { get; set; }
