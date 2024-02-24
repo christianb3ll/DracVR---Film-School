@@ -98,7 +98,7 @@ public class CameraPlacement : MonoBehaviour
             // Transform tripodTilt = tripod.transform.Find("PanHandle/PanTransform/TiltHandle/HandleGrip");
 
             // Set the camera as the target object for the tripod socket interactor
-            tripod.GetComponent<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
+            tripod.GetComponentInChildren<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());
 
         }
     }
