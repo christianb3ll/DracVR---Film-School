@@ -27,14 +27,14 @@ public class CameraPlacement : MonoBehaviour
     }
 
     // Method for Activating a camera by ID
-    private void ActivateCamera(int camID)
+    public void ActivateCamera(int camID)
     {
         activeCameras[camID] = true;
         cameraObjects[camID].SetActive(true);
     }
 
     // Method for Deactivating a camera by ID
-    private void DeactivateCamera(int camID)
+    public void DeactivateCamera(int camID)
     {
         activeCameras[camID] = false;
         cameraObjects[camID].SetActive(false);
