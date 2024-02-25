@@ -58,6 +58,8 @@ public class SceneManager : MonoBehaviour
 
     public TextMeshPro consoleLogText;
 
+    public CameraReplays replays;
+
     public UnityEvent SceneStartEvents;
     public UnityEvent SceneEndEvents;
 
@@ -131,6 +133,9 @@ public class SceneManager : MonoBehaviour
             // set the playback state to playing
             currentState = SceneState.Playback;
 
+            // Starts replays
+            replays.StartPlayback();
+
             // setup the queue
             markerQueue = new Queue<CameraMarker>(markers);
         } else
@@ -152,6 +157,9 @@ public class SceneManager : MonoBehaviour
             playableDirector.Play();
             // set the state to Live
             currentState = SceneState.Live;
+
+            // Starts replay recording
+            replays.StartRecording();
         }
     }
 
@@ -180,16 +188,22 @@ public class SceneManager : MonoBehaviour
                     // sort the recorded markers
                     markers.Sort(SortByTimestamp);
                 }
+                // Ends replay playback
+                replays.EndPlayback();
             }
 
-            if(currentState == SceneState.Live) recordingExists = true;
-
+            if (currentState == SceneState.Live)
+            {
+                // Ends replay recording
+                replays.EndRecording();
+                recordingExists = true;
+            }
 
             // Reset the scene
             ResetPlayback();
             // set playback to stopped state
             currentState = SceneState.Stopped;
-           
+   
             SceneEndEvents.Invoke();
         }
         
@@ -205,6 +219,10 @@ public class SceneManager : MonoBehaviour
             ResetPlayback();
             // set the playback state to stopped
             currentState = SceneState.Stopped;
+
+            // ends replay recording
+            replays.EndRecording();
+
             SceneEndEvents.Invoke();
         }
             
