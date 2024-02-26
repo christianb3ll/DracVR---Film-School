@@ -7,7 +7,6 @@ using UltimateReplay.Storage;
 // Manages the replay of handheld camera movement
 public class CameraReplays : MonoBehaviour
 {
-    private UltimateReplay.ReplayManager manager;
     private ReplayStorage storage;
     private ReplayRecordOperation recordOp;
     private ReplayPlaybackOperation playbackOp;
@@ -15,9 +14,8 @@ public class CameraReplays : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Setup the manager and storage references
-        manager = GetComponent<ReplayManager>();
-        storage = new ReplayMemoryStorage("CameraReplay");
+        // Setup the storage references
+        storage = new ReplayMemoryStorage("CameraStorage");
     }
 
     // Begins a new recording

@@ -9,6 +9,8 @@ public class CameraPlacement : MonoBehaviour
     public GameObject[] cameraObjects;
     public GameObject tripodPrefab;
 
+    public AudioClip tripodAudio;
+
     public GameObject initCamTransform;
 
     public float cameraOffset;
@@ -94,6 +96,10 @@ public class CameraPlacement : MonoBehaviour
             GameObject tripod = Instantiate(
                 tripodPrefab, new Vector3(newPos.x, 0, newPos.z) , userRotation);
 
+            // Plays the tripod placement audio clip
+            AudioSource audioSource = tripod.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(tripodAudio);
+
             // Set the tilt of the tripod
             // Transform tripodTilt = tripod.transform.Find("PanHandle/PanTransform/TiltHandle/HandleGrip");
 
@@ -127,6 +133,10 @@ public class CameraPlacement : MonoBehaviour
 
             // Instantiate a tripod at the chosen location
             GameObject tripod = Instantiate(tripodPrefab, location.position, location.rotation);
+
+            // Plays the tripod placement audio clip
+            AudioSource audioSource = tripod.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(tripodAudio);
 
             // Set the camera as the target object for the tripod socket interactor
             tripod.GetComponentInChildren<XRSocketInteractor>().StartManualInteraction(cameraObjects[camID].GetComponent<IXRSelectInteractable>());

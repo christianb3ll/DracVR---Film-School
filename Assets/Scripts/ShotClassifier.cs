@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum ShotType
+{
+    WideShot,
+    TwoShot,
+    MidShot,
+    MedCloseUp,
+    CloseUp,
+    ExCloseUp,
+    OverShoulder,
+    Unframed,
+    Unknown
+}
+
 // Manages classifying shot types
 public class ShotClassifier : MonoBehaviour
 {
-    public enum ShotType
-    {
-        WideShot,
-        TwoShot,
-        MidShot,
-        MedCloseUp,
-        CloseUp,
-        ExCloseUp,
-        OverShoulder,
-        Unframed,
-        Unknown
-    }
-
     public Camera cam;
 
     private ShotType shotType;
@@ -34,6 +34,11 @@ public class ShotClassifier : MonoBehaviour
     private CharacterFramer draculaFramer;
     private CharacterFramer harkerFramer;
 
+    public GoalManager goalManager;
+    private ShotType prevShot;
+    private float startTime;
+    public float shotHoldTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +51,10 @@ public class ShotClassifier : MonoBehaviour
 
         harkerFramer.InitialiseCharacter();
         draculaFramer.InitialiseCharacter();
-}
+
+        prevShot = ShotType.Unknown;
+        startTime = Time.time;
+    }
 
     // Update is called once per frame
     void Update()
@@ -69,6 +77,9 @@ public class ShotClassifier : MonoBehaviour
 
         // determines shot type based on both characters
         shotType = GetShotType(harkerFramer.shotType, draculaFramer.shotType);
+
+        // Checks progress towards goals
+        CheckGoal(shotType);
 
         // sets text for debug purposes
         SetText();
@@ -96,8 +107,6 @@ public class ShotClassifier : MonoBehaviour
     {
         return (Vector3.Dot(character.forward, cam.transform.position - character.position) > 0);
     }
-
-    
 
     // sets the type of shot for the camera
     private ShotType GetShotType(ShotType shot1, ShotType shot2)
@@ -136,6 +145,7 @@ public class ShotClassifier : MonoBehaviour
         return shot;
     }
 
+    // Returns the shot type for an individual character
     private ShotType GetCharacterShotType(CharacterFramer character)
     {
         ShotType shot = ShotType.Unknown;
@@ -198,7 +208,34 @@ public class ShotClassifier : MonoBehaviour
         return shot;
     }
 
-    // Sets the text for the current shot type - for DEBUG purposess
+    // Checks if a shot goal has been achieved
+    public void CheckGoal(ShotType currentShot)
+    {
+        if(currentShot != ShotType.Unknown || currentShot != ShotType.Unframed)
+        {
+            if (currentShot == prevShot)
+            {
+                if (Time.time - startTime > shotHoldTime)
+                {
+                    // check goal
+                    goalManager.GoalAchieved(currentShot);
+                    prevShot = currentShot;
+                }
+            }
+            else
+            {
+                startTime = Time.time;
+                prevShot = currentShot;
+            }
+        } else
+        {
+            startTime = Time.time;
+            prevShot = currentShot;
+        }
+        
+    }
+
+    // Sets the text for the current shot type
     public void SetText()
     {
         string shotName = "";
@@ -244,7 +281,7 @@ public class CharacterFramer
     public bool waistVisible { get; set; }
     public bool footVisible { get; set; }
 
-    public ShotClassifier.ShotType shotType { get; set; }
+    public ShotType shotType { get; set; }
 
     public void InitialiseCharacter()
     {

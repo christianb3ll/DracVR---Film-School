@@ -18,8 +18,6 @@ public class CameraArea : MonoBehaviour
 
     public GameObject reticle;
 
-
-
     void Start()
     {
         // Get the interactable
@@ -60,9 +58,9 @@ public class CameraArea : MonoBehaviour
         reticle.SetActive(false);
     }
 
+    // Places a camera at the reticle position
     public void OnActivate()
     {
-
         cameraPlacement.PlaceCamera(reticle.transform);
     }
 

@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8355817699083088304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6433425ae01a1245b39532acd227ae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  replayPrefab: {fileID: 3356913688958925935, guid: 741cfdf586e750946ab04d7702444a51, type: 3}
-  allowPooling: 1
 --- !u!114 &-5619535358319885942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6433425ae01a1245b39532acd227ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replayPrefab: {fileID: 4253647433789861586, guid: d0579203b68a7904a8215afc8f429274, type: 3}
+  replayPrefab: {fileID: 9174611165862870223, guid: 8fcd32d8c5a2e4ae69fead33e59bec0f, type: 3}
   allowPooling: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -41,7 +27,7 @@ MonoBehaviour:
   m_Name: UltimateReplaySettings
   m_EditorClassIdentifier: 
   recordOptions:
-    recordFPS: 12
+    recordFPS: 10
     recordUpdateMode: 1
   playbackOptions:
     playbackFPS: -1
@@ -50,7 +36,7 @@ MonoBehaviour:
   sceneDiscovery: 0
   prefabProviders:
   - {fileID: -5619535358319885942}
-  - {fileID: -8355817699083088304}
+  - {fileID: 0}
   defaultReplayPreparer:
     skipTypes:
     - assemblyQualifiedTypeName: UltimateReplay.ReplayObject, UltimateReplay, Version=0.0.0.0,

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 // Manages the clapperboard interactable
 public class Clapperboard : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     public SceneManager sceneManager;
 

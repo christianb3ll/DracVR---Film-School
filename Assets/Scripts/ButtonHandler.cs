@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Handles in-game buttons and their associated methods
 public class ButtonHandler : MonoBehaviour
 {
-    private GameObject[] camBtns;
+    public ConsoleManager console;
 
     private bool isPressed;
     private Vector3 initialPos;
 
     public bool toggleableBtn;
+    public bool cameraBtn;
     public float pressDistance;
 
     [SerializeField]
@@ -23,75 +25,85 @@ public class ButtonHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // initialise button to unpressed state
         isPressed = false;
         initialPos = gameObject.transform.position;
-
-        if(camBtns == null)
-        {
-            camBtns = GameObject.FindGameObjectsWithTag("camBtn");
-        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Called when the user selects a button
     public void OnPress()
     {
-        if (!isPressed)
+        // temporary button state bool
+        bool currentlyPressed = isPressed;
+
+        // Check button is not currently pressed
+        if(!currentlyPressed)
         {
-            gameObject.transform.position = new Vector3(
-            initialPos.x,
-            initialPos.y - pressDistance,
-            initialPos.z
-            );
-            ButtonPress.Invoke();
+            // Activate the button
+            ActivateBtn();
+
+            // Check if the button is toggleable or not
             if (!toggleableBtn)
             {
+                // Resets the button position after a delay
                 StartCoroutine("ButtonReset");
             }
-        } else
-        {
-            gameObject.transform.position = initialPos;
         }
-
-        isPressed = !isPressed;
-    }
-
-    public void SetCamBtnMaterials()
-    {
-        if (isPressed)
+        else
         {
-            gameObject.GetComponent<MeshRenderer>().material = btnActiveMaterial;
-        } else
-        {
-            gameObject.GetComponent<MeshRenderer>().material = btnInactiveMaterial;
+            // Deactivates the button
+            // Camera buttons can only be deactivated by selecting a
+            // different camera button
+            if(!cameraBtn) DeactivateBtn();
         }
     }
 
-    private bool GetButtonState()
+    // Returns the current button presss state
+    public bool ButtonIsPressed()
     {
         return isPressed;
     }
 
-    public void SetCamBtnStates()
+    // Activates the button
+    public void ActivateBtn()
     {
-        foreach (GameObject camBtn in camBtns)
+        // Sets the position of the button according to press distance
+        gameObject.transform.position = new Vector3(
+            initialPos.x,
+            initialPos.y - pressDistance,
+            initialPos.z
+            );
+        // Invokes the events associated with the button
+        ButtonPress.Invoke();
+
+        // Check if button is a camera button
+        if (cameraBtn)
         {
-            if(!ReferenceEquals(camBtn, gameObject))
-            {
-                ButtonHandler btn = camBtn.GetComponent<ButtonHandler>();
-                if (btn.GetButtonState())
-                {
-                    btn.OnPress();
-                    btn.SetCamBtnMaterials();
-                }
-            } 
+            // Set the button material to active material
+            gameObject.GetComponent<MeshRenderer>().material = btnActiveMaterial;
+            // Deactivates the other camera buttons
+            console.SetBtnStates(gameObject);
         }
+        // Set pressed state to active
+        isPressed = true;
     }
 
+    // Deactivates the button
+    public void DeactivateBtn()
+    {
+        // returns the button to the unset position
+        gameObject.transform.position = initialPos;
+        // Check if button is a camera button
+        if (cameraBtn)
+        {
+            // Set the button material to inactive material
+            gameObject.GetComponent<MeshRenderer>().material = btnInactiveMaterial;
+        }
+        // Set pressed state to inactive
+        isPressed = false;
+    }
+
+    // resets the button position based on a timer
     IEnumerator ButtonReset()
     {
         yield return new WaitForSeconds(0.2f);
