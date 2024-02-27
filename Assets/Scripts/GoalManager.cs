@@ -11,6 +11,10 @@ public class GoalManager : MonoBehaviour
     private bool twoshotAchieved;
 
     public GameObject wideTick;
+    public GameObject midTick;
+    public GameObject mcuTick;
+    public GameObject cuTick;
+    public GameObject twoshotTick;
 
     // Start is called before the first frame update
     void Start()
@@ -43,19 +47,35 @@ public class GoalManager : MonoBehaviour
                 break;
             case ShotType.TwoShot:
                 // Two-Shot Achieved
-                twoshotAchieved = true;
+                if (!twoshotAchieved)
+                {
+                    twoshotAchieved = true;
+                    twoshotTick.SetActive(true);
+                }
                 break;
             case ShotType.MidShot:
                 // Mid-Shot Achieved
-                midAchieved = true;
+                if (!midAchieved)
+                {
+                    midAchieved = true;
+                    midTick.SetActive(true);
+                }
                 break;
             case ShotType.MedCloseUp:
                 // MCU Achieved
-                mcuAchieved = true;
+                if (!mcuAchieved)
+                {
+                    mcuAchieved = true;
+                    mcuTick.SetActive(true);
+                }
                 break;
             case ShotType.CloseUp:
                 // CU Achieved
-                cuAchieved = true;
+                if (!cuAchieved)
+                {
+                    cuAchieved = true;
+                    cuTick.SetActive(true);
+                }
                 break;
         }
         

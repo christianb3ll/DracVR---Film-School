@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using TMPro;
 
+// Manages scene playback and scene related methods
 public class SceneManager : MonoBehaviour
 {
     // ENUM describing current scene playback state
@@ -109,6 +110,12 @@ public class SceneManager : MonoBehaviour
     public bool SceneStopped()
     {
         return currentState == SceneState.Stopped;
+    }
+
+    // Checks if the scene is in the live state
+    public bool SceneLive()
+    {
+        return currentState == SceneState.Live;
     }
 
     // Sets up playback for the scene

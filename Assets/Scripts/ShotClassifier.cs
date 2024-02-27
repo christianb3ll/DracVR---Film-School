@@ -34,6 +34,7 @@ public class ShotClassifier : MonoBehaviour
     private CharacterFramer draculaFramer;
     private CharacterFramer harkerFramer;
 
+    public SceneManager sceneManager;
     public GoalManager goalManager;
     private ShotType prevShot;
     private float startTime;
@@ -79,6 +80,7 @@ public class ShotClassifier : MonoBehaviour
         shotType = GetShotType(harkerFramer.shotType, draculaFramer.shotType);
 
         // Checks progress towards goals
+        // if (sceneManager.SceneLive()) CheckGoal(shotType);
         CheckGoal(shotType);
 
         // sets text for debug purposes
