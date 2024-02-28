@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Tracks whether a usser has achieved a certain shot and updates UI
 public class GoalManager : MonoBehaviour
 {
     private bool wideAchieved;
@@ -19,6 +20,7 @@ public class GoalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initialise goals as unachieved
         wideAchieved = false;
         midAchieved = false;
         mcuAchieved = false;
@@ -26,12 +28,7 @@ public class GoalManager : MonoBehaviour
         twoshotAchieved = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Sets a goal as achievved
     public void GoalAchieved(ShotType shot)
     {
         switch (shot)

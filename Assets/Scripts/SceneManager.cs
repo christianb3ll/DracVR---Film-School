@@ -48,6 +48,7 @@ public class SceneManager : MonoBehaviour
 
     private bool isBlackAndWhite;
 
+    private int activeCamera;
     public MeshRenderer screen;
 
     private bool recordMarkers;
@@ -79,6 +80,9 @@ public class SceneManager : MonoBehaviour
 
         // Sets Black and white to false
         isBlackAndWhite = false;
+
+        // Set the current camera as inactive
+        activeCamera = -1;
 
         // Set recording markers to false
         recordMarkers = false;
@@ -248,7 +252,13 @@ public class SceneManager : MonoBehaviour
     public void ToggleMarkerRecording()
     {
         recordMarkers = !recordMarkers;
-        if (recordMarkers) Log("Recording Markers");
+        if (recordMarkers)
+        {
+            Log("Recording Markers");
+        } else
+        {
+            Log("Recording Deactivated");
+        }
     }
 
     // Sorting function that allows sorting the marker list according to timestamp
@@ -313,13 +323,29 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    // Toggles black and white and colour
     public void ToggleBlackAndWhite()
     {
         isBlackAndWhite = !isBlackAndWhite;
+
+        if(activeCamera != -1)
+        {
+            SetScreenMaterial(activeCamera);
+        }
     }
 
     // Sets the given camera ID to display on the monitor
     private void SetCamera(int id)
+    {
+        SetScreenMaterial(id);
+
+        activeCamera = id;
+        Log("Set to Camera " + id);
+        
+    }
+
+    // Set the screen material
+    private void SetScreenMaterial(int id)
     {
         // Check if black and white
         if (!isBlackAndWhite)
@@ -332,9 +358,6 @@ public class SceneManager : MonoBehaviour
         {
             screen.material = camBWMaterials[id - 1];
         }
-
-        Log("Set to Camera " + id);
-        
     }
 
     public void Evaluate()

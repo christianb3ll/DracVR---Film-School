@@ -80,8 +80,7 @@ public class ShotClassifier : MonoBehaviour
         shotType = GetShotType(harkerFramer.shotType, draculaFramer.shotType);
 
         // Checks progress towards goals
-        // if (sceneManager.SceneLive()) CheckGoal(shotType);
-        CheckGoal(shotType);
+        if (sceneManager.SceneLive()) CheckGoal(shotType);
 
         // sets text for debug purposes
         SetText();

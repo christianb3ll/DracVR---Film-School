@@ -21,6 +21,7 @@ public class ButtonHandler : MonoBehaviour
     private Material btnInactiveMaterial;
 
     public UnityEvent ButtonPress;
+    public UnityEvent ButtonDepress;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,7 @@ public class ButtonHandler : MonoBehaviour
             // Camera buttons can only be deactivated by selecting a
             // different camera button
             if(!cameraBtn) DeactivateBtn();
+            if(toggleableBtn) ButtonDepress.Invoke();
         }
     }
 
@@ -73,6 +75,7 @@ public class ButtonHandler : MonoBehaviour
             initialPos.y - pressDistance,
             initialPos.z
             );
+
         // Invokes the events associated with the button
         ButtonPress.Invoke();
 
