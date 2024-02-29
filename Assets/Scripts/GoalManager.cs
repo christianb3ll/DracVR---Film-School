@@ -17,6 +17,8 @@ public class GoalManager : MonoBehaviour
     public GameObject cuTick;
     public GameObject twoshotTick;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,9 @@ public class GoalManager : MonoBehaviour
         mcuAchieved = false;
         cuAchieved = false;
         twoshotAchieved = false;
+
+        // Get the success audio source
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Sets a goal as achievved
@@ -37,6 +42,7 @@ public class GoalManager : MonoBehaviour
                 // Wide shot Achieved
                 if (!wideAchieved)
                 {
+                    audioSource.Play();
                     wideAchieved = true;
                     wideTick.SetActive(true);
                 }
@@ -46,6 +52,7 @@ public class GoalManager : MonoBehaviour
                 // Two-Shot Achieved
                 if (!twoshotAchieved)
                 {
+                    audioSource.Play();
                     twoshotAchieved = true;
                     twoshotTick.SetActive(true);
                 }
@@ -54,6 +61,7 @@ public class GoalManager : MonoBehaviour
                 // Mid-Shot Achieved
                 if (!midAchieved)
                 {
+                    audioSource.Play();
                     midAchieved = true;
                     midTick.SetActive(true);
                 }
@@ -62,6 +70,7 @@ public class GoalManager : MonoBehaviour
                 // MCU Achieved
                 if (!mcuAchieved)
                 {
+                    audioSource.Play();
                     mcuAchieved = true;
                     mcuTick.SetActive(true);
                 }
@@ -70,6 +79,7 @@ public class GoalManager : MonoBehaviour
                 // CU Achieved
                 if (!cuAchieved)
                 {
+                    audioSource.Play();
                     cuAchieved = true;
                     cuTick.SetActive(true);
                 }

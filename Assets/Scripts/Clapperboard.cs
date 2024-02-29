@@ -8,7 +8,7 @@ public class Clapperboard : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    public SceneManager sceneManager;
+    public SceneTimelineManager sceneManager;
 
     // Events for start and stop scene
     public UnityEvent StartEvent;

@@ -34,7 +34,7 @@ public class ShotClassifier : MonoBehaviour
     private CharacterFramer draculaFramer;
     private CharacterFramer harkerFramer;
 
-    public SceneManager sceneManager;
+    public SceneTimelineManager sceneManager;
     public GoalManager goalManager;
     private ShotType prevShot;
     private float startTime;

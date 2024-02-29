@@ -7,7 +7,7 @@ using UnityEngine.Timeline;
 using TMPro;
 
 // Manages scene playback and scene related methods
-public class SceneManager : MonoBehaviour
+public class SceneTimelineManager : MonoBehaviour
 {
     // ENUM describing current scene playback state
     private enum SceneState
@@ -145,7 +145,7 @@ public class SceneManager : MonoBehaviour
             currentState = SceneState.Playback;
 
             // Starts replays
-            replays.StartPlayback();
+            //replays.StartPlayback();
 
             // setup the queue
             markerQueue = new Queue<CameraMarker>(markers);
@@ -170,7 +170,7 @@ public class SceneManager : MonoBehaviour
             currentState = SceneState.Live;
 
             // Starts replay recording
-            replays.StartRecording();
+            //replays.StartRecording();
         }
     }
 
@@ -200,13 +200,13 @@ public class SceneManager : MonoBehaviour
                     markers.Sort(SortByTimestamp);
                 }
                 // Ends replay playback
-                replays.EndPlayback();
+                //replays.EndPlayback();
             }
 
             if (currentState == SceneState.Live)
             {
                 // Ends replay recording
-                replays.EndRecording();
+                //replays.EndRecording();
                 recordingExists = true;
             }
 
@@ -232,7 +232,7 @@ public class SceneManager : MonoBehaviour
             currentState = SceneState.Stopped;
 
             // ends replay recording
-            replays.EndRecording();
+            //replays.EndRecording();
 
             SceneEndEvents.Invoke();
         }
