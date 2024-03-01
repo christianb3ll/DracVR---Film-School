@@ -312,8 +312,8 @@ GameObject:
   - component: {fileID: 3966103765523414078}
   - component: {fileID: 3390126013241504897}
   - component: {fileID: 2213355331439351292}
-  - component: {fileID: 9174611165862870223}
   - component: {fileID: 7803013648039398713}
+  - component: {fileID: 1646306085027380217}
   m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
@@ -602,6 +602,9 @@ MonoBehaviour:
   textTest: {fileID: 377751061546005779}
   harker: {fileID: 0}
   dracula: {fileID: 0}
+  sceneManager: {fileID: 0}
+  goalManager: {fileID: 0}
+  shotHoldTime: 0
 --- !u!82 &2213355331439351292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -698,28 +701,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9174611165862870223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810457409114590014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6d4a23cc5cda434fbd19ba3e86cc094, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instantiateIdentity: 1
-  replayIdentity:
-    id: 25037
-  prefabIdentity:
-    id: 59072
-  observedComponents:
-  - {fileID: 0}
-  runtimeComponents: []
-  isPrefab: 1
-  prefabType: 0
 --- !u!114 &7803013648039398713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,9 +714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replayIdentity:
-    id: 35773
+    id: 21068
   replayObject:
-    reference: {fileID: 9174611165862870223}
+    reference: {fileID: 0}
   replayPosition: 23
   positionSpace: 1
   positionPrecision: 0
@@ -744,6 +725,29 @@ MonoBehaviour:
   rotationSpace: 1
   replayScale: 0
   scalePrecision: 0
+--- !u!114 &1646306085027380217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810457409114590014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d4a23cc5cda434fbd19ba3e86cc094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiateIdentity: 1
+  replayIdentity:
+    id: 24858
+  prefabIdentity:
+    id: 34238
+  observedComponents:
+  - {fileID: 7803013648039398713}
+  runtimeComponents:
+  - {fileID: 7803013648039398713}
+  isPrefab: 1
+  prefabType: 0
 --- !u!1 &3993271400740363891
 GameObject:
   m_ObjectHideFlags: 0

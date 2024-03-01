@@ -13,12 +13,19 @@ public class CameraReplays : MonoBehaviour
 
     private ReplayScene scene;
 
+    public GameObject[] replayObjects;
+
     // Start is called before the first frame update
     void Start()
     {
         // Setup the storage references
         storage = new ReplayMemoryStorage("CameraStorage");
-        // scene = new ReplayScene();
+        scene = new ReplayScene();
+
+        foreach(GameObject obj in replayObjects)
+        {
+            scene.AddReplayObject(obj);
+        }
     }
 
     // Adds ann object to the replay scene
@@ -36,7 +43,7 @@ public class CameraReplays : MonoBehaviour
     // Begins a new recording
     public void StartRecording()
     {
-        recordOp = ReplayManager.BeginRecording(storage);
+        recordOp = ReplayManager.BeginRecording(storage, scene);
     }
 
     // Ends a recording

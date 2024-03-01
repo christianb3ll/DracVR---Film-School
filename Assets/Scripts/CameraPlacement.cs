@@ -17,22 +17,29 @@ public class CameraPlacement : MonoBehaviour
 
     private bool[] activeCameras = new bool[5];
 
+    public CameraReplays replays;
+
     // Dissable all cameras on Awake
     void Awake()
     {
         for(int i = 0; i < activeCameras.Length; i++)
         {
-            DeactivateCamera(i);
+            //DeactivateCamera(i);
+            activeCameras[i] = false;
         }
         // reacctivate the first camera
-        ActivateCamera(0);
+        //ActivateCamera(0);
+        activeCameras[0] = true;
     }
 
     // Method for Activating a camera by ID
     public void ActivateCamera(int camID)
     {
+        // Activate the camera
         activeCameras[camID] = true;
         cameraObjects[camID].SetActive(true);
+        // Add the camera to the replay scene
+        //replays.AddToScene(cameraObjects[camID]);
     }
 
     // Method for Deactivating a camera by ID
@@ -40,6 +47,8 @@ public class CameraPlacement : MonoBehaviour
     {
         activeCameras[camID] = false;
         cameraObjects[camID].SetActive(false);
+        // Remove the camera from the replay scene
+        //replays.RemoveFromScene(cameraObjects[camID]);
     }
 
     // Method for checking if cameras can be placed

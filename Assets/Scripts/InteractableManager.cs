@@ -11,6 +11,9 @@ public class InteractableManager : MonoBehaviour
     public GameObject clapperboard;
     public Transform clapperboardOrigin;
 
+    public GameObject megaphone;
+    public Transform megaphoneOrigin;
+
     // Resets the position of interactables to the given orgin points
     public void ResetObjects()
     {
@@ -19,5 +22,8 @@ public class InteractableManager : MonoBehaviour
 
         clapperboard.transform.position = clapperboardOrigin.position;
         clapperboard.transform.rotation = clapperboardOrigin.rotation;
+
+        megaphone.transform.position = megaphoneOrigin.position;
+        megaphone.transform.rotation = megaphoneOrigin.rotation;
     }
 }
