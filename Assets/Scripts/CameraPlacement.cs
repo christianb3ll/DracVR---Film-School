@@ -39,7 +39,7 @@ public class CameraPlacement : MonoBehaviour
         activeCameras[camID] = true;
         cameraObjects[camID].SetActive(true);
         // Add the camera to the replay scene
-        //replays.AddToScene(cameraObjects[camID]);
+        replays.AddToScene(cameraObjects[camID]);
     }
 
     // Method for Deactivating a camera by ID
@@ -48,7 +48,7 @@ public class CameraPlacement : MonoBehaviour
         activeCameras[camID] = false;
         cameraObjects[camID].SetActive(false);
         // Remove the camera from the replay scene
-        //replays.RemoveFromScene(cameraObjects[camID]);
+        replays.RemoveFromScene(cameraObjects[camID]);
     }
 
     // Method for checking if cameras can be placed

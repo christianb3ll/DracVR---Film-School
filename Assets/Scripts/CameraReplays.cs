@@ -43,7 +43,7 @@ public class CameraReplays : MonoBehaviour
     // Begins a new recording
     public void StartRecording()
     {
-        recordOp = ReplayManager.BeginRecording(storage, scene);
+        recordOp = ReplayManager.BeginRecording(storage, scene, true);
     }
 
     // Ends a recording
@@ -59,7 +59,7 @@ public class CameraReplays : MonoBehaviour
     // Begins playback of a recording
     public void StartPlayback()
     {
-        playbackOp = ReplayManager.BeginPlayback(storage);
+        playbackOp = ReplayManager.BeginPlayback(storage, scene);
     }
 
     // Ends playback
