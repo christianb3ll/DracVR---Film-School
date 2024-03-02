@@ -11,7 +11,6 @@ public class HintManager : MonoBehaviour
     public void ActivateHint(GameObject shot)
     {
         hintCanvas.SetActive(true);
-
         shot.SetActive(true);
     }
 
@@ -19,7 +18,6 @@ public class HintManager : MonoBehaviour
     public void DeactivateHint(GameObject shot)
     {
         hintCanvas.gameObject.SetActive(false);
-
         shot.SetActive(false);
     }
 }
