@@ -1,28 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR;
 
+// Manages the display of Shot Hints
 public class HintManager : MonoBehaviour
 {
-    
-    public Canvas hintCanvas;
-    public TextMeshPro hintText;
+    public GameObject hintCanvas;
 
-    public GameObject hintObj;
-    public string hintObjText;
-
-    // Start is called before the first frame update
-    void Start()
+    // Activates a given shot hint
+    public void ActivateHint(GameObject shot)
     {
-        
+        hintCanvas.SetActive(true);
+
+        shot.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    // Deactivates a given shsot hint
+    public void DeactivateHint(GameObject shot)
     {
-        
+        hintCanvas.gameObject.SetActive(false);
+
+        shot.SetActive(false);
     }
 }

@@ -76,7 +76,6 @@ public class CameraPlacement : MonoBehaviour
             if(activeCameras[i] == false && camID == -1)
             {
                 camID = i;
-                activeCameras[i] = true;
             }
         }
 
@@ -84,7 +83,7 @@ public class CameraPlacement : MonoBehaviour
         if(camID != -1)
         {
             // Activate the camera
-            cameraObjects[camID].SetActive(true);
+            ActivateCamera(camID);
 
             // initialise position
             Vector3 userPos = Camera.main.transform.position;
@@ -130,7 +129,6 @@ public class CameraPlacement : MonoBehaviour
             if (activeCameras[i] == false && camID == -1)
             {
                 camID = i;
-                activeCameras[i] = true;
             }
         }
 
@@ -138,7 +136,7 @@ public class CameraPlacement : MonoBehaviour
         if (camID != -1)
         {
             // Activate the camera
-            cameraObjects[camID].SetActive(true);
+            ActivateCamera(camID);
 
             // Instantiate a tripod at the chosen location
             GameObject tripod = Instantiate(tripodPrefab, location.position, location.rotation);

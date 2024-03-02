@@ -28,7 +28,7 @@ public class CameraReplays : MonoBehaviour
         }
     }
 
-    // Adds ann object to the replay scene
+    // Adds an object to the replay scene
     public void AddToScene(GameObject obj)
     {
         scene.AddReplayObject(obj);
@@ -65,9 +65,13 @@ public class CameraReplays : MonoBehaviour
     // Ends playback
     public void EndPlayback()
     {
-        if (playbackOp.IsReplaying)
+        if (!playbackOp.IsDisposed)
         {
-            playbackOp.StopPlayback();
+            if (playbackOp.IsReplaying)
+            {
+                playbackOp.StopPlayback();
+            }
         }
+        
     }
 }

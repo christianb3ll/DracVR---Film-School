@@ -61,6 +61,7 @@ public class SceneTimelineManager : MonoBehaviour
     public TextMeshPro consoleLogText;
 
     public CameraReplays replays;
+    public AudioManager audioManager;
 
     public UnityEvent SceneStartEvents;
     public UnityEvent SceneEndEvents;
@@ -147,6 +148,9 @@ public class SceneTimelineManager : MonoBehaviour
             // Starts replays
             replays.StartPlayback();
 
+            // Set audio to monitor
+            audioManager.EnableMonitorAudio();
+
             // setup the queue
             markerQueue = new Queue<CameraMarker>(markers);
         } else
@@ -201,6 +205,9 @@ public class SceneTimelineManager : MonoBehaviour
                 }
                 // Ends replay playback
                 replays.EndPlayback();
+
+                // Set audio to scene
+                audioManager.EnableSceneAudio();
             }
 
             if (currentState == SceneState.Live)
