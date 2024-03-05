@@ -10,13 +10,15 @@ public class CameraArea : MonoBehaviour
 {
     private XRSimpleInteractable interactable;
 
-    public CameraPlacement cameraPlacement;
+    public CameraManager cameraManager;
 
     // User input variables
     public InputActionReference thumbstickLeft;
     public float rotateSpeed;
 
     public GameObject reticle;
+    public Material activeMaterial;
+    public Material inactiveMaterial;
 
     void Start()
     {
@@ -43,6 +45,17 @@ public class CameraArea : MonoBehaviour
     public void OnHover()
     {
         ShowReticle();
+
+        // set the reticle material to inactive if cameras can't be placed
+        if (cameraManager.CamerasAvailable())
+        {
+            reticle.GetComponentInChildren<MeshRenderer>().material = inactiveMaterial;
+        }
+        else
+        {
+            reticle.GetComponentInChildren<MeshRenderer>().material = activeMaterial;
+        }
+
         reticle.transform.position = gameObject.transform.position;
     }
 
@@ -61,7 +74,7 @@ public class CameraArea : MonoBehaviour
     // Places a camera at the reticle position
     public void OnActivate()
     {
-        cameraPlacement.PlaceCamera(reticle.transform);
+        cameraManager.PlaceCamera(reticle.transform);
     }
 
 }

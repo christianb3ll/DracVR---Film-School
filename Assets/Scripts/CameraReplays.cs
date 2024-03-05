@@ -15,11 +15,14 @@ public class CameraReplays : MonoBehaviour
 
     public GameObject[] replayObjects;
 
+    public CameraManager cameraManager;
+
     // Start is called before the first frame update
     void Start()
     {
         // Setup the storage references
         storage = new ReplayMemoryStorage("CameraStorage");
+
         scene = new ReplayScene();
 
         foreach(GameObject obj in replayObjects)

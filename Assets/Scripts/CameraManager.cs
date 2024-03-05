@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 // Managed the placement of cameras
-public class CameraPlacement : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
     public GameObject[] cameraObjects;
     public GameObject tripodPrefab;
@@ -16,6 +16,7 @@ public class CameraPlacement : MonoBehaviour
     public float cameraOffset;
 
     private bool[] activeCameras = new bool[5];
+    private bool[] saveRecording = new bool[5];
 
     public CameraReplays replays;
 
@@ -26,10 +27,18 @@ public class CameraPlacement : MonoBehaviour
         {
             //DeactivateCamera(i);
             activeCameras[i] = false;
+            // initialise recording saves to false
+            saveRecording[i] = false;
         }
         // reacctivate the first camera
         //ActivateCamera(0);
         activeCameras[0] = true;
+    }
+
+    // Checks if a camera is active in the scene
+    public bool IsActive(int camID)
+    {
+        return activeCameras[camID - 1];
     }
 
     // Method for Activating a camera by ID
@@ -49,6 +58,24 @@ public class CameraPlacement : MonoBehaviour
         cameraObjects[camID].SetActive(false);
         // Remove the camera from the replay scene
         replays.RemoveFromScene(cameraObjects[camID]);
+    }
+
+    // Activates saving camera replayss for a given camera
+    public void ActivateSaveRecording(int camID)
+    {
+        saveRecording[camID] = true;
+    }
+
+    // Deactivates saving camera replayss for a given camera
+    public void DectivateSaveRecording(int camID)
+    {
+        saveRecording[camID] = false;
+    }
+
+    // Returns a bool if a camera is set to save recording
+    public bool IsSaved(int camID)
+    {
+        return saveRecording[camID];
     }
 
     // Method for checking if cameras can be placed

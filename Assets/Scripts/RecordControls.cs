@@ -1,49 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+// Manages the replay record state of the camera
 public class RecordControls : MonoBehaviour
 {
-    [SerializeField]
-    UltimateReplay.ReplayObject replayObject;
-    [SerializeField]
-    UltimateReplay.ReplayTransform replayTransform;
+    private bool savePresssed;
 
-    private bool replayEnabled;
-    private CameraReplays cameraReplays;
+    public float pressDistance;
+    public Material activeMaterial;
+    public Material inactiveMaterial;
+
+    public UnityEvent ToggleOn;
+    public UnityEvent ToggleOff;
 
     // Start is called before the first frame update
     void Start()
     {
-        replayObject.enabled = false;
-        replayTransform.enabled = false;
+        // initialise the press state
+        savePresssed = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void ButtonPress(){
-
-    }
-
-    public void ToggleCameraReplay()
-    {
-        if (replayEnabled)
+    // Toggle the button appearance and set state
+    public void ButtonToggle(){
+        // Check if button pressed
+        if (!savePresssed)
         {
-            replayObject.enabled = false;
-            replayTransform.enabled = false;
-            cameraReplays.RemoveFromScene(gameObject);
+            // Set the button position and material
+            gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, pressDistance,0), Quaternion.identity);
+            gameObject.GetComponent<MeshRenderer>().material = activeMaterial;
+            ToggleOn.Invoke();
         }
         else
         {
-            replayObject.enabled = true;
-            replayTransform.enabled = true;
-            cameraReplays.AddToScene(gameObject);
+            // Set the button position and material
+            gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+            gameObject.GetComponent<MeshRenderer>().material = inactiveMaterial;
+            ToggleOff.Invoke();
         }
 
-        replayEnabled = !replayEnabled;
+        // Update the press state
+        savePresssed = !savePresssed;
     }
+
+
 }
