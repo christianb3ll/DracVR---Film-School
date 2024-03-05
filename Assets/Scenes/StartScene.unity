@@ -6455,7 +6455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12046,6 +12046,34 @@ PrefabInstance:
     - target: {fileID: 1752234244951584969, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
       propertyPath: m_Name
       value: box-equipment-padded-big
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.54550683
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.8381052
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0011968017
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0007638335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -113.881
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.0039978027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177992299548530339, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.16600037
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -56083,6 +56111,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1920700847}
     m_Modifications:
+    - target: {fileID: 186159106416783398, guid: 7a07a9562c898d74397d834a0635f33c, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1359649912369892169, guid: 7a07a9562c898d74397d834a0635f33c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.786167
@@ -56126,6 +56158,10 @@ PrefabInstance:
     - target: {fileID: 1843558605157208563, guid: 7a07a9562c898d74397d834a0635f33c, type: 3}
       propertyPath: m_Name
       value: ladder-folding-movie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843558605157208563, guid: 7a07a9562c898d74397d834a0635f33c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
