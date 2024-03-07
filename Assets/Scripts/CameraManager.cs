@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UltimateReplay;
+using UltimateReplay.Storage;
 
 // Managed the placement of cameras
 public class CameraManager : MonoBehaviour
@@ -15,75 +17,108 @@ public class CameraManager : MonoBehaviour
 
     public float cameraOffset;
 
-    private bool[] activeCameras = new bool[5];
-    private bool[] saveRecording = new bool[5];
+    private CameraReplay[] replayObjects;
 
-    public CameraReplays replays;
-
-    // Dissable all cameras on Awake
+    // initialises replay objects
     void Awake()
     {
-        for(int i = 0; i < activeCameras.Length; i++)
+        replayObjects = new CameraReplay[5];
+        for (int i = 0; i < cameraObjects.Length; i++)
         {
-            //DeactivateCamera(i);
-            activeCameras[i] = false;
-            // initialise recording saves to false
-            saveRecording[i] = false;
+            replayObjects[i] = new CameraReplay(
+                i,
+                cameraObjects[i].GetComponent<ReplayObject>(),
+                false,
+                new ReplayMemoryStorage("CameraStorage" + i)
+                );
         }
-        // reacctivate the first camera
-        //ActivateCamera(0);
-        activeCameras[0] = true;
     }
 
     // Checks if a camera is active in the scene
     public bool IsActive(int camID)
     {
-        return activeCameras[camID - 1];
+        return cameraObjects[camID].activeInHierarchy;
     }
 
     // Method for Activating a camera by ID
     public void ActivateCamera(int camID)
     {
         // Activate the camera
-        activeCameras[camID] = true;
         cameraObjects[camID].SetActive(true);
-        // Add the camera to the replay scene
-        replays.AddToScene(cameraObjects[camID]);
     }
 
     // Method for Deactivating a camera by ID
     public void DeactivateCamera(int camID)
     {
-        activeCameras[camID] = false;
         cameraObjects[camID].SetActive(false);
-        // Remove the camera from the replay scene
-        replays.RemoveFromScene(cameraObjects[camID]);
     }
 
-    // Activates saving camera replayss for a given camera
-    public void ActivateSaveRecording(int camID)
+    // Starts record operations for all active cameras
+    public void StartRecording()
     {
-        saveRecording[camID] = true;
+        for(int i = 0; i < cameraObjects.Length; i++)
+        {
+            if (cameraObjects[i].activeInHierarchy)
+            {
+                replayObjects[i].StartRecording();
+            }
+        }
     }
 
-    // Deactivates saving camera replayss for a given camera
-    public void DectivateSaveRecording(int camID)
+    // Ends record operations for all active cameras
+    public void EndRecording()
     {
-        saveRecording[camID] = false;
+        for (int i = 0; i < cameraObjects.Length; i++)
+        {
+            if (cameraObjects[i].activeInHierarchy)
+            {
+                replayObjects[i].EndRecording();
+            }
+        }
     }
 
-    // Returns a bool if a camera is set to save recording
-    public bool IsSaved(int camID)
+    // Starts playback operations for all active cameras
+    public void StartPlayback()
     {
-        return saveRecording[camID];
+        for (int i = 0; i < cameraObjects.Length; i++)
+        {
+            if (cameraObjects[i].activeInHierarchy)
+            {
+                replayObjects[i].StartPlayback();
+            }
+        }
+    }
+
+    // Ends playback for all active cameras
+    public void EndPlayback()
+    {
+        for (int i = 0; i < cameraObjects.Length; i++)
+        {
+            if (cameraObjects[i].activeInHierarchy)
+            {
+                replayObjects[i].EndPlayback();
+            }
+        }
+    }
+
+    // Set the save state to true for a given camera
+    public void SetSaveActive(int camID)
+    {
+        replayObjects[camID].saved = true;
+    }
+
+    // Set the save state to false for a given camera
+    public void SetSaveInactive(int camID)
+    {
+        replayObjects[camID].saved = false;
     }
 
     // Method for checking if cameras can be placed
     public bool CamerasAvailable()
     {
-        for (int i = 0; i < activeCameras.Length; i++)
+        for (int i = 0; i < cameraObjects.Length; i++)
         {
-            if (activeCameras[i] == false)
+            if (cameraObjects[i].activeInHierarchy == false)
             {
                 return false;
             }
@@ -98,9 +133,9 @@ public class CameraManager : MonoBehaviour
         int camID = -1;
 
         // Check currently active cameras and find the first inactive camera
-        for (int i = 0; i < activeCameras.Length; i++)
+        for (int i = 0; i < cameraObjects.Length; i++)
         {
-            if(activeCameras[i] == false && camID == -1)
+            if(cameraObjects[i].activeInHierarchy == false && camID == -1)
             {
                 camID = i;
             }
@@ -151,9 +186,9 @@ public class CameraManager : MonoBehaviour
         int camID = -1;
 
         // Check currently active cameras and find the first inactive camera
-        for (int i = 0; i < activeCameras.Length; i++)
+        for (int i = 0; i < cameraObjects.Length; i++)
         {
-            if (activeCameras[i] == false && camID == -1)
+            if (cameraObjects[i].activeInHierarchy == false && camID == -1)
             {
                 camID = i;
             }

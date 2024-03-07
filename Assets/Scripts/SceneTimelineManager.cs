@@ -60,7 +60,9 @@ public class SceneTimelineManager : MonoBehaviour
 
     public TextMeshPro consoleLogText;
 
-    public CameraReplays replays;
+    // public CameraReplays replays;
+    public CameraManager cameraManager;
+
     public AudioManager audioManager;
 
     public UnityEvent SceneStartEvents;
@@ -146,7 +148,7 @@ public class SceneTimelineManager : MonoBehaviour
             currentState = SceneState.Playback;
 
             // Starts replays
-            replays.StartPlayback();
+            cameraManager.StartPlayback();
 
             // Set audio to monitor
             audioManager.EnableMonitorAudio();
@@ -174,7 +176,7 @@ public class SceneTimelineManager : MonoBehaviour
             currentState = SceneState.Live;
 
             // Starts replay recording
-            replays.StartRecording();
+            cameraManager.StartRecording();
         }
     }
 
@@ -204,7 +206,7 @@ public class SceneTimelineManager : MonoBehaviour
                     markers.Sort(SortByTimestamp);
                 }
                 // Ends replay playback
-                replays.EndPlayback();
+                cameraManager.EndPlayback();
 
                 // Set audio to scene
                 audioManager.EnableSceneAudio();
@@ -213,7 +215,7 @@ public class SceneTimelineManager : MonoBehaviour
             if (currentState == SceneState.Live)
             {
                 // Ends replay recording
-                replays.EndRecording();
+                cameraManager.EndRecording();
                 recordingExists = true;
             }
 
@@ -239,7 +241,7 @@ public class SceneTimelineManager : MonoBehaviour
             currentState = SceneState.Stopped;
 
             // ends replay recording
-            replays.EndRecording();
+            cameraManager.EndRecording();
 
             SceneEndEvents.Invoke();
         }

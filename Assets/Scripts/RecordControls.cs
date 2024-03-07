@@ -15,9 +15,12 @@ public class RecordControls : MonoBehaviour
     public UnityEvent ToggleOn;
     public UnityEvent ToggleOff;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // initialise the press state
         savePresssed = false;
     }
@@ -30,6 +33,7 @@ public class RecordControls : MonoBehaviour
             // Set the button position and material
             gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, pressDistance,0), Quaternion.identity);
             gameObject.GetComponent<MeshRenderer>().material = activeMaterial;
+            audioSource.Play();
             ToggleOn.Invoke();
         }
         else
@@ -37,6 +41,7 @@ public class RecordControls : MonoBehaviour
             // Set the button position and material
             gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
             gameObject.GetComponent<MeshRenderer>().material = inactiveMaterial;
+            audioSource.Play();
             ToggleOff.Invoke();
         }
 
