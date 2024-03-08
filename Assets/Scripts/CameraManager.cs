@@ -13,6 +13,8 @@ public class CameraManager : MonoBehaviour
 
     public AudioClip tripodAudio;
 
+    public ConsoleManager consoleManager;
+
     public GameObject initCamTransform;
 
     public float cameraOffset;
@@ -45,12 +47,18 @@ public class CameraManager : MonoBehaviour
     {
         // Activate the camera
         cameraObjects[camID].SetActive(true);
+
+        // Set the camera screen
+        consoleManager.ActivateCamScreen(camID);
     }
 
     // Method for Deactivating a camera by ID
     public void DeactivateCamera(int camID)
     {
         cameraObjects[camID].SetActive(false);
+
+        // Set the camera screen to no signal
+        consoleManager.DeactivateCamScreen(camID);
     }
 
     // Starts record operations for all active cameras

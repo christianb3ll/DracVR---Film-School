@@ -20,9 +20,9 @@ MonoBehaviour:
     isPrivate: 1
     createdAt: 2024-01-01T05:17:08-0800
     trainingStatus: 1
-    lastTrainDuration: 59
-    lastTrainedAt: 2024-03-08T04:22:32-0800
-    nextTrainAt: 2024-03-08T04:21:33-0800
+    lastTrainDuration: 52
+    lastTrainedAt: 2024-03-08T09:38:27-0800
+    nextTrainAt: 2024-03-08T09:37:35-0800
     intents:
     - id: 292533833652682
       name: delete_camera
@@ -33,6 +33,11 @@ MonoBehaviour:
         id: 248135044951345
       - name: wit$number:number
         id: 396786826416610
+    - id: 417240760962624
+      name: end_experience
+      entities:
+      - name: command:command
+        id: 1038503117378146
     - id: 1428428837768849
       name: end_scene
       entities:
@@ -173,6 +178,9 @@ MonoBehaviour:
       - keyword: show
         synonyms:
         - show
+      - keyword: wrap
+        synonyms:
+        - wrap
     - name: location
       id: 3617201978554522
       lookups:

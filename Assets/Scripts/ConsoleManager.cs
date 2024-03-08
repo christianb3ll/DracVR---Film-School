@@ -7,6 +7,10 @@ public class ConsoleManager : MonoBehaviour
 {
     private GameObject[] camBtns;
 
+    public MeshRenderer[] camScreens;
+    public Material noSignalMaterial;
+    public Material[] camMaterials;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,18 @@ public class ConsoleManager : MonoBehaviour
         {
             camBtns = GameObject.FindGameObjectsWithTag("camBtn");
         }
+    }
+
+    // Activates the camera screen on the console
+    public void ActivateCamScreen(int camID)
+    {
+        camScreens[camID].material = camMaterials[camID];
+    }
+
+    // Sets the no signal screen on the console
+    public void DeactivateCamScreen(int camID)
+    {
+        camScreens[camID].material = noSignalMaterial;
     }
 
     // Takes a given camera button and deactivates all other buttons
