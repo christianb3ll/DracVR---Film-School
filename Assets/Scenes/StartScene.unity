@@ -6539,7 +6539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7676,7 +7676,7 @@ GameObject:
   - component: {fileID: 140285086}
   - component: {fileID: 140285085}
   m_Layer: 0
-  m_Name: Quad (3)
+  m_Name: Cam4Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7999,7 +7999,7 @@ GameObject:
   - component: {fileID: 148264321}
   - component: {fileID: 148264320}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Cam1Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19186,13 +19186,13 @@ PrefabInstance:
       addedObject: {fileID: 1719432888}
     - targetCorrespondingSourceObject: {fileID: 4029600929886884, guid: f913d63706cc5604086d57e00c3bcb9b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 986050894}
+      addedObject: {fileID: 911938558}
     - targetCorrespondingSourceObject: {fileID: 4029600929886884, guid: f913d63706cc5604086d57e00c3bcb9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 140285084}
     - targetCorrespondingSourceObject: {fileID: 4029600929886884, guid: f913d63706cc5604086d57e00c3bcb9b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 911938558}
+      addedObject: {fileID: 986050894}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f913d63706cc5604086d57e00c3bcb9b, type: 3}
 --- !u!4 &374311503 stripped
@@ -45085,7 +45085,7 @@ GameObject:
   - component: {fileID: 911938560}
   - component: {fileID: 911938559}
   m_Layer: 0
-  m_Name: Quad (4)
+  m_Name: Cam3Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48920,7 +48920,7 @@ GameObject:
   - component: {fileID: 986050896}
   - component: {fileID: 986050895}
   m_Layer: 0
-  m_Name: Quad (2)
+  m_Name: Cam5Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53939,6 +53939,7 @@ GameObject:
   - component: {fileID: 1100788337}
   - component: {fileID: 1100788338}
   - component: {fileID: 1100788339}
+  - component: {fileID: 1100788340}
   m_Layer: 0
   m_Name: Response Handler
   m_TagString: Untagged
@@ -54241,6 +54242,54 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDidNotMatch:
+    m_PersistentCalls:
+      m_Calls: []
+  onOutOfDomain:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1100788340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100788332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591c3d6f017c11b4faa41506d75635b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Voice: {fileID: 1462567783}
+  ValidateEarly: 0
+  intent: end_experience
+  confidenceThreshold: 0.6
+  valueMatchers:
+  - path: intents[0].name
+    witValueReference: {fileID: 0}
+    contentRequired: 1
+    matchMethod: 0
+    comparisonMethod: 0
+    matchValue: 
+    floatingPointComparisonTolerance: 0.00009999999747378752
+    allowConfidenceOverlap: 0
+    confidenceRanges: []
+  formattedValueEvents: []
+  onMultiValueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1669400538}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: bow
           m_BoolArgument: 0
         m_CallState: 2
   onDidNotMatch:
@@ -65198,9 +65247,9 @@ MonoBehaviour:
   camScreens:
   - {fileID: 148264321}
   - {fileID: 1719432890}
-  - {fileID: 986050896}
-  - {fileID: 140285086}
   - {fileID: 911938560}
+  - {fileID: 140285086}
+  - {fileID: 986050896}
   noSignalMaterial: {fileID: 2100000, guid: 3090f5a1f78174122a0fb97df663dfcd, type: 2}
   camMaterials:
   - {fileID: 2100000, guid: e45e38870d4704a4ba3e1e2f85e5095e, type: 2}
@@ -83398,7 +83447,7 @@ GameObject:
   - component: {fileID: 1719432890}
   - component: {fileID: 1719432889}
   m_Layer: 0
-  m_Name: Quad (1)
+  m_Name: Cam2Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103504,6 +103553,18 @@ MonoBehaviour:
       - m_Target: {fileID: 184507810}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1996902424}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
