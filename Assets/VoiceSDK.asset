@@ -1,0 +1,515 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
+  m_Name: VoiceSDK
+  m_EditorClassIdentifier: 
+  _clientAccessToken: 2JLIEH6ILLGULX2LASHWZAIHIQ6WHQSU
+  _appInfo:
+    name: filmmaker_prototype
+    id: 883733240419059
+    lang: en
+    isPrivate: 1
+    createdAt: 2024-01-01T05:17:08-0800
+    trainingStatus: 1
+    lastTrainDuration: 59
+    lastTrainedAt: 2024-03-08T04:22:32-0800
+    nextTrainAt: 2024-03-08T04:21:33-0800
+    intents:
+    - id: 292533833652682
+      name: delete_camera
+      entities:
+      - name: command:command
+        id: 1038503117378146
+      - name: object:object
+        id: 248135044951345
+      - name: wit$number:number
+        id: 396786826416610
+    - id: 1428428837768849
+      name: end_scene
+      entities:
+      - name: command:command
+        id: 1038503117378146
+    - id: 1023189752110566
+      name: place_object
+      entities:
+      - name: command:command
+        id: 1038503117378146
+      - name: location:location
+        id: 180489695121208
+      - name: object:object
+        id: 248135044951345
+    - id: 377069851946539
+      name: play_scene
+      entities:
+      - name: command:command
+        id: 1038503117378146
+      - name: object:object
+        id: 248135044951345
+    - id: 401629752331928
+      name: start_scene
+      entities:
+      - name: command:command
+        id: 1038503117378146
+      - name: location:location
+        id: 180489695121208
+      - name: object:object
+        id: 248135044951345
+      - name: wit$number:number
+        id: 396786826416610
+    - id: 765494351849314
+      name: toggle_blocking
+      entities:
+      - name: command:command
+        id: 1038503117378146
+      - name: object:object
+        id: 248135044951345
+    - id: 3720686344816794
+      name: toggle_hints
+      entities:
+      - name: command:command
+        id: 1038503117378146
+      - name: object:object
+        id: 248135044951345
+    entities:
+    - name: Color
+      id: 423810503396617
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: Color
+        id: 1390834601822287
+      keywords:
+      - keyword: Black
+        synonyms: []
+      - keyword: Blue
+        synonyms: []
+      - keyword: Brown
+        synonyms: []
+      - keyword: Gray
+        synonyms: []
+      - keyword: Green
+        synonyms: []
+      - keyword: Orange
+        synonyms: []
+      - keyword: Pink
+        synonyms: []
+      - keyword: Purple
+        synonyms: []
+      - keyword: Red
+        synonyms: []
+      - keyword: White
+        synonyms: []
+      - keyword: Yellow
+        synonyms: []
+    - name: Shape
+      id: 1178761246623127
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: Shape
+        id: 956113822798281
+      keywords:
+      - keyword: Capsule
+        synonyms: []
+      - keyword: Cube
+        synonyms: []
+      - keyword: Cylinder
+        synonyms: []
+      - keyword: Sphere
+        synonyms: []
+    - name: command
+      id: 1971191359948266
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: command
+        id: 1038503117378146
+      keywords:
+      - keyword: Action
+        synonyms:
+        - action
+      - keyword: Add
+        synonyms:
+        - add
+      - keyword: Cut
+        synonyms:
+        - cut
+      - keyword: Hide
+        synonyms:
+        - hide
+      - keyword: Place
+        synonyms:
+        - place
+      - keyword: Play
+        synonyms:
+        - play
+      - keyword: Put
+        synonyms:
+        - put
+      - keyword: Remove
+        synonyms:
+        - remove
+      - keyword: Start
+        synonyms:
+        - start
+      - keyword: Stop
+        synonyms:
+        - stop
+      - keyword: go
+        synonyms:
+        - go
+      - keyword: show
+        synonyms:
+        - show
+    - name: location
+      id: 3617201978554522
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: location
+        id: 180489695121208
+      keywords:
+      - keyword: here
+        synonyms:
+        - here
+    - name: object
+      id: 6883330161764884
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: object
+        id: 248135044951345
+      keywords:
+      - keyword: Tripod
+        synonyms:
+        - tripod
+        - tripodd
+      - keyword: blocking
+        synonyms:
+        - blocking
+      - keyword: camera
+        synonyms:
+        - camera
+      - keyword: hints
+        synonyms:
+        - hints
+      - keyword: scene
+        synonyms:
+        - scene
+    - name: wit$number
+      id: 535a80e2-6fc8-4991-b707-50dd0c862dfb
+      lookups: []
+      roles:
+      - name: number
+        id: 396786826416610
+      keywords: []
+    traits:
+    - name: wit$on_off
+      id: 535a80f0-6922-4680-b678-0576f248cdcc
+      values:
+      - id: 2701187510165547
+        value: off
+      - id: 882247432292479
+        value: on
+    versionTags: []
+    voices:
+    - name: wit$Rebecca
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Charlie
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - fast
+      - projected
+    - name: wit$Cooper
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Vampire
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Prospector
+      locale: en_US
+      gender: male
+      styles:
+      - default
+    - name: wit$Cody
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Remi
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Cam
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Connor
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Railey
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Cael
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Carl
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Rubie
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Overconfident
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Disaffected
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Hollywood
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Trendy
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Cartoon Baby
+      locale: en_US
+      gender: nonbinary
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Surfer
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Southern Accent
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Kenyan Accent
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Cartoon Kid
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Cartoon Villain
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Rosie
+      locale: en_CA
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Colin
+      locale: en_CA
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Pirate
+      locale: en_GB
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$British Butler
+      locale: en_GB
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Whimsical
+      locale: en_GB
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Wizard
+      locale: en_GB
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: wit$Cockney Accent
+      locale: en_GB
+      gender: nonbinary
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+  _configData: []
+  _configurationId: 26b80790-6361-44cb-8953-2aafeb0a2b86
+  timeoutMS: 10000
+  endpointConfiguration:
+    _uriScheme: 
+    _authority: 
+    _port: 0
+    _witApiVersion: 
+    _message: 
+    _speech: 
+    _dictation: 
+    _synthesize: 
+    _event: 
+    _converse: 
+  isDemoOnly: 0
+  useConduit: 1
+  _manifestLocalPath: ConduitManifest-a5816c57-c226-4ad9-ae89-51fe53895874.json
+  excludedAssemblies:
+  - Oculus.Voice.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Meta.WitAi.Samples, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  relaxedResolution: 0

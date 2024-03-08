@@ -212,4 +212,31 @@ public class CameraManager : MonoBehaviour
             
         }
     }
+
+    // Places a tripod at the player location
+    public void PlaceTripod()
+    {
+        // initialise position
+        Vector3 userPos = Camera.main.transform.position;
+        Vector3 userDir = Camera.main.transform.forward;
+
+        // initialise rotation
+        Quaternion userRotation = Camera.main.transform.rotation;
+        Quaternion cameraRotation = Camera.main.transform.rotation;
+
+        // new possition with camera offset
+        Vector3 newPos = userPos + userDir * cameraOffset;
+
+        // calculate new rotations
+        userRotation.SetLookRotation(new Vector3(userDir.x, 0, userDir.z), Vector3.up);
+        cameraRotation.SetLookRotation(userDir, Vector3.up);
+
+        // Instantiate a tripod at the user's location
+        GameObject tripod = Instantiate(
+            tripodPrefab, new Vector3(newPos.x, 0, newPos.z), userRotation);
+
+        // Plays the tripod placement audio clip
+        AudioSource audioSource = tripod.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(tripodAudio);
+    }
 }
