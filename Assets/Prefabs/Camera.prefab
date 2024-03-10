@@ -1131,7 +1131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526096243514420271}
   - component: {fileID: 8663431565175626954}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: save-icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
