@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 36dc1929a87704e5795d1d2c1e05acbc, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c93f61bfb71274451bcc9e827a44745b, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -744,7 +744,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &132335406
 Transform:
@@ -941,9 +941,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5516650556025003365, guid: 3ac2ce63f7f1027449768d21daaacb20, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5533246526960523176, guid: 3ac2ce63f7f1027449768d21daaacb20, type: 3}
       propertyPath: m_Name
       value: box-equipment-sturdy-small
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533246526960523176, guid: 3ac2ce63f7f1027449768d21daaacb20, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129994015545813853, guid: 3ac2ce63f7f1027449768d21daaacb20, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -967,7 +979,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &213487814
 Transform:
@@ -1072,7 +1084,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &293495889
 MeshCollider:
@@ -1178,7 +1190,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &314969992
 Transform:
@@ -1459,6 +1471,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 733629667290232816, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028389949541001184, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5819087087757608957, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.458495
@@ -1502,6 +1522,18 @@ PrefabInstance:
     - target: {fileID: 6596186087946362183, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
       propertyPath: m_Name
       value: tripod-universal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596186087946362183, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157640226471200253, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015043443149125459, guid: d784d8ab41bfa95408f0ce103602fc91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1606,7 +1638,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &506989645
 Transform:
@@ -1705,6 +1737,10 @@ PrefabInstance:
     - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_Name
       value: truss-steel-2m (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 835423630153724078, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1820,6 +1856,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 63403969357485088, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 759752047126012613, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1376693490723678835, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.88
@@ -1863,6 +1907,10 @@ PrefabInstance:
     - target: {fileID: 1752234244951584969, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
       propertyPath: m_Name
       value: box-equipment-padded-big
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752234244951584969, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2164,6 +2212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: truss-steel-2m (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 835423630153724078, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.61
@@ -2365,7 +2417,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &773920946
 Transform:
@@ -2753,7 +2805,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2801,6 +2853,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221288833921205447, guid: 134ba017912ac794f8907cc00814241f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1394147591414726568, guid: 134ba017912ac794f8907cc00814241f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.509
@@ -2845,6 +2901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair-director-text
       objectReference: {fileID: 0}
+    - target: {fileID: 1734679109416379666, guid: 134ba017912ac794f8907cc00814241f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2867,7 +2927,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &994008642
 MeshCollider:
@@ -3544,6 +3604,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 63403969357485088, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 759752047126012613, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1376693490723678835, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.6473455
@@ -3588,6 +3656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: box-equipment-padded-big (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1752234244951584969, guid: 1ef4c016cff14c3459e9d1b8797937d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3609,6 +3681,10 @@ PrefabInstance:
     - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_Name
       value: truss-steel-2m (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 835423630153724078, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3869,6 +3945,10 @@ PrefabInstance:
     - target: {fileID: 1302193683081410, guid: 6dfc50f09395743489cfcb9228091212, type: 3}
       propertyPath: m_Name
       value: Green Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302193683081410, guid: 6dfc50f09395743489cfcb9228091212, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4481672147405798, guid: 6dfc50f09395743489cfcb9228091212, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4329,7 +4409,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1490882197
 Transform:
@@ -4571,9 +4651,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1237527819289482202, guid: 3c8ddcc864c803f44bf06a6d782a2519, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3575812734920173565, guid: 3c8ddcc864c803f44bf06a6d782a2519, type: 3}
       propertyPath: m_Name
       value: microphone-tripod
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575812734920173565, guid: 3c8ddcc864c803f44bf06a6d782a2519, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4239019815899790663, guid: 3c8ddcc864c803f44bf06a6d782a2519, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4618,6 +4706,10 @@ PrefabInstance:
     - target: {fileID: 4422182360275032736, guid: 3c8ddcc864c803f44bf06a6d782a2519, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850312243336442618, guid: 3c8ddcc864c803f44bf06a6d782a2519, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4835,7 +4927,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5571,6 +5663,10 @@ PrefabInstance:
     - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_Name
       value: truss-steel-2m
+      objectReference: {fileID: 0}
+    - target: {fileID: 59626451468020244, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 835423630153724078, guid: bae8a2c5655f9d74185a8449ebe9a14b, type: 3}
       propertyPath: m_LocalPosition.x
